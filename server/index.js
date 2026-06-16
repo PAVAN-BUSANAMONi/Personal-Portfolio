@@ -2,6 +2,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const express = require("express");
 const nodemailer = require("nodemailer");
+const path = require("path");
 
 dotenv.config();
 
@@ -395,7 +396,7 @@ function autoReplyTemplate(data) {
           <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #e2e8f0; padding-top: 25px;">
             <tr>
               <td style="width: 70px; vertical-align: middle;">
-                <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #0b192c; color: #20c997; text-align: center; line-height: 50px; font-size: 20px; font-family: Georgia, serif; font-style: italic;">PB</div>
+                <img src="cid:avatar-img" alt="PAVAN BUSANAMONi" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; display: block;" />
               </td>
               <td style="vertical-align: middle;">
                 <div style="font-size: 14px; color: #64748b; margin-bottom: 4px;">Best Regards,</div>
@@ -521,6 +522,13 @@ app.post("/api/contact", async (req, res) => {
       subject: "Request Received Successfully",
       text: autoReplyText(data),
       html: autoReplyTemplate(data),
+      attachments: [
+        {
+          filename: 'avatar.png',
+          path: path.join(__dirname, '../src/Assets/newLogo.png'),
+          cid: 'avatar-img'
+        }
+      ]
     });
 
     res.json({
