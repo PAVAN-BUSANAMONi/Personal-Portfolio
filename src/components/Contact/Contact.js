@@ -15,9 +15,7 @@ function getContactApiUrls() {
     urls.push(configuredUrl);
   }
 
-  // Hardcoded Render Backend URL for production
-  urls.push("https://personal-portfolio-zrp5.onrender.com/api/contact");
-
+  // Use Vercel Serverless Function
   urls.push("/api/contact");
 
   if (isLocalBrowser) {
