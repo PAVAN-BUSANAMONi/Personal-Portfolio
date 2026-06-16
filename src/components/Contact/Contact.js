@@ -148,7 +148,7 @@ function Contact() {
                 </span>
               </a>
               <a
-                href="https://github.com/BUSANAMONI-PAVAN"
+                href="https://github.com/PAVAN-BUSANAMONi"
                 target="_blank"
                 rel="noreferrer"
                 className="contact-info-card"
@@ -156,7 +156,7 @@ function Contact() {
                 <AiFillGithub />
                 <span>
                   <strong>GitHub</strong>
-                  BUSANAMONI-PAVAN
+                  PAVAN-BUSANAMONi
                 </span>
               </a>
             </div>

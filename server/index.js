@@ -8,10 +8,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.MAIL_SERVER_PORT || process.env.PORT || 5000;
 const OWNER_NAME = "PAVAN BUSANAMONi";
-const OWNER_EMAIL =
-  process.env.CONTACT_RECEIVER_EMAIL || "pavan.busanamoni@gmail.com";
-const MAIL_USER = process.env.MAIL_USER || "personal.portfolio.pavan@gmail.com";
-const MAIL_APP_PASSWORD = process.env.MAIL_APP_PASSWORD;
+const OWNER_EMAIL = process.env.CONTACT_RECEIVER_EMAIL ? process.env.CONTACT_RECEIVER_EMAIL.trim() : "pavan.busanamoni@gmail.com";
+const MAIL_USER = process.env.MAIL_USER ? process.env.MAIL_USER.trim() : "personal.portfolio.pavan@gmail.com";
+const MAIL_APP_PASSWORD = process.env.MAIL_APP_PASSWORD ? process.env.MAIL_APP_PASSWORD.trim() : undefined;
 const CLIENT_ORIGINS = [
   ...(process.env.CLIENT_ORIGIN || "").split(","),
   "http://localhost:3000",
@@ -46,7 +45,9 @@ app.use(express.json({ limit: "20kb" }));
 app.use(express.urlencoded({ extended: false, limit: "20kb" }));
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
   auth: {
     user: MAIL_USER,
     pass: MAIL_APP_PASSWORD,
@@ -285,90 +286,125 @@ function notificationTemplate(data) {
 }
 
 function autoReplyTemplate(data) {
-  const needTheme = getNeedTheme(data.need);
-  const priorityTheme = getPriorityTheme(data.priority);
-  const replyTheme = {
-    accent: "#14b8a6",
-    bg: "#f0fdfa",
-    border: "#5eead4",
-    text: "#0f766e",
-  };
-
   return `
-    <div style="font-family:Inter,Arial,sans-serif;background:#f5f8fb;padding:28px;">
-      <div style="max-width:640px;margin:0 auto;background:#ffffff;border:1px solid #dbe6f0;border-radius:14px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#0f172a,#0f766e);padding:26px 28px;color:#ffffff;">
-          <p style="margin:0;color:#99f6e4;font-weight:900;text-transform:uppercase;letter-spacing:.05em;">${escapeHtml(
-            OWNER_NAME
-          )} Portfolio</p>
-          <h1 style="margin:10px 0 0;font-size:28px;line-height:1.2;">Thank you, ${escapeHtml(
-            data.name
-          )}</h1>
-          <p style="margin:12px 0 0;color:#d1fae5;font-weight:700;">Your ${escapeHtml(
-            data.need
-          )} request is safely in my inbox.</p>
-        </div>
-        <div style="padding:26px 28px;color:#1f2937;line-height:1.7;font-size:15px;">
-          <p>Hi ${escapeHtml(data.name)},</p>
-          <p>Thank you for contacting me through my portfolio.</p>
-          <p><strong>Please be patient, I will definitely reach you soon.</strong></p>
+    <div style="font-family: Arial, sans-serif; background-color: #f8fafc; padding: 20px;">
+      <div style="max-width: 650px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+        
+        <!-- Header -->
+        <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #0b192c; color: #ffffff;">
+          <tr>
+            <td style="padding: 40px 30px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="width: 50px; vertical-align: top;">
+                    <div style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid #20c997; text-align: center; line-height: 36px; color: #20c997; font-size: 18px;">✓</div>
+                  </td>
+                  <td>
+                    <h1 style="margin: 0; font-size: 26px; font-weight: bold;">Hello <span style="color: #20c997;">${escapeHtml(data.name)}</span>,</h1>
+                    <p style="margin: 8px 0 0 0; font-size: 15px; color: #e2e8f0;">Thank you for reaching out through my portfolio website.</p>
+                  </td>
+                  <td style="width: 70px; text-align: right; vertical-align: top;">
+                    <div style="font-size: 45px; line-height: 1;">✉️</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
 
-          <table style="width:100%;border-collapse:separate;border-spacing:0 10px;margin:18px 0 4px;">
+        <!-- Body Content -->
+        <div style="padding: 30px;">
+          
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 25px;">
             <tr>
-              <td style="padding:0;">
-                <div style="border:1px solid ${needTheme.border};border-left:7px solid ${needTheme.accent};border-radius:12px;background:${needTheme.bg};padding:15px 16px;">
-                  <div style="color:${needTheme.text};font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;">Message Type</div>
-                  <div style="margin-top:5px;color:${needTheme.text};font-size:20px;font-weight:950;line-height:1.25;">${escapeHtml(
-                    data.need
-                  )}</div>
-                  <div style="margin-top:8px;">${badge(
-                    needTheme.label,
-                    needTheme
-                  )}</div>
-                </div>
+              <td style="width: 35px; vertical-align: top; padding-bottom: 15px;">
+                <div style="width: 22px; height: 22px; border-radius: 50%; background-color: #20c997; color: white; text-align: center; line-height: 22px; font-size: 12px; font-weight: bold;">✓</div>
+              </td>
+              <td style="padding-bottom: 15px; color: #334155; font-size: 15px; line-height: 1.5;">
+                This email confirms that I have successfully received your contact request and submitted details.
               </td>
             </tr>
             <tr>
-              <td style="padding:0;">
-                <table style="width:100%;border-collapse:separate;border-spacing:0;">
-                  <tr>
-                    <td style="width:50%;padding:0 6px 0 0;">
-                      <div style="border:1px solid ${priorityTheme.border};border-left:6px solid ${priorityTheme.accent};border-radius:12px;background:${priorityTheme.bg};padding:14px;">
-                        <div style="color:${priorityTheme.text};font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;">Priority</div>
-                        <div style="margin-top:5px;color:${priorityTheme.text};font-size:16px;font-weight:950;">${escapeHtml(
-                          data.priority
-                        )}</div>
-                      </div>
-                    </td>
-                    <td style="width:50%;padding:0 0 0 6px;">
-                      <div style="border:1px solid ${replyTheme.border};border-left:6px solid ${replyTheme.accent};border-radius:12px;background:${replyTheme.bg};padding:14px;">
-                        <div style="color:${replyTheme.text};font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;">Reply Via</div>
-                        <div style="margin-top:5px;color:${replyTheme.text};font-size:16px;font-weight:950;">${escapeHtml(
-                          data.reply
-                        )}</div>
-                      </div>
-                    </td>
-                  </tr>
-                </table>
+              <td style="width: 35px; vertical-align: top;">
+                <div style="width: 22px; height: 22px; border-radius: 50%; background-color: #60a5fa; color: white; text-align: center; line-height: 22px; font-size: 12px; font-weight: bold;">🕒</div>
+              </td>
+              <td style="color: #334155; font-size: 15px; line-height: 1.5;">
+                I truly appreciate your interest and will review your message shortly. You can expect a response from me as soon as possible using your preferred contact method.
               </td>
             </tr>
           </table>
 
-          <p style="margin-top:18px;">I received your <strong>${escapeHtml(
-            data.need
-          )}</strong> message and will reply through <strong>${escapeHtml(
-    data.reply
-  )}</strong>.</p>
+          <!-- Divider -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom: 25px;">
+            <tr>
+              <td style="width: 30%; border-bottom: 1px solid #cbd5e1;"></td>
+              <td style="width: 40%; text-align: center; font-weight: bold; color: #0b192c; font-size: 18px;">
+                <span style="color: #20c997; margin-right: 8px;">●</span> Submitted Details <span style="color: #20c997; margin-left: 8px;">●</span>
+              </td>
+              <td style="width: 30%; border-bottom: 1px solid #cbd5e1;"></td>
+            </tr>
+          </table>
 
-          <div style="margin-top:18px;padding:18px 20px;background:linear-gradient(135deg,${needTheme.bg},#ffffff);border:2px solid ${needTheme.border};border-left:10px solid ${needTheme.accent};border-radius:14px;box-shadow:0 12px 28px rgba(15,23,42,.07);">
-            <div style="display:inline-block;margin-bottom:10px;padding:6px 10px;border-radius:999px;background:${needTheme.bg};border:1px solid ${needTheme.border};color:${needTheme.text};font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;">Your submitted message</div>
-            <div style="white-space:pre-wrap;color:#111827;font-size:16px;font-weight:800;line-height:1.7;">${escapeHtml(
-              data.message
-            )}</div>
+          <!-- Details Card -->
+          <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px 25px; margin-bottom: 25px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="width: 45px; padding: 15px 0; border-bottom: 1px solid #f1f5f9;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #ccfbf1; text-align: center; line-height: 32px; font-size: 15px;">👤</div>
+                </td>
+                <td style="width: 160px; padding: 15px 0; font-weight: bold; color: #0b192c; font-size: 15px; border-bottom: 1px solid #f1f5f9;">Name:</td>
+                <td style="padding: 15px 0; color: #334155; font-size: 15px; border-bottom: 1px solid #f1f5f9;">${escapeHtml(data.name)}</td>
+              </tr>
+              <tr>
+                <td style="width: 45px; padding: 15px 0; border-bottom: 1px solid #f1f5f9;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #dbeafe; text-align: center; line-height: 32px; font-size: 15px;">✉️</div>
+                </td>
+                <td style="width: 160px; padding: 15px 0; font-weight: bold; color: #0b192c; font-size: 15px; border-bottom: 1px solid #f1f5f9;">Email:</td>
+                <td style="padding: 15px 0; font-size: 15px; border-bottom: 1px solid #f1f5f9;"><a href="mailto:${escapeHtml(data.email)}" style="color: #3b82f6; text-decoration: none;">${escapeHtml(data.email)}</a></td>
+              </tr>
+              <tr>
+                <td style="width: 45px; padding: 15px 0; border-bottom: 1px solid #f1f5f9;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #f3e8ff; text-align: center; line-height: 32px; font-size: 15px;">📞</div>
+                </td>
+                <td style="width: 160px; padding: 15px 0; font-weight: bold; color: #0b192c; font-size: 15px; border-bottom: 1px solid #f1f5f9;">Phone / WhatsApp:</td>
+                <td style="padding: 15px 0; color: #334155; font-size: 15px; border-bottom: 1px solid #f1f5f9;">${escapeHtml(data.phone || "Not provided")}</td>
+              </tr>
+              <tr>
+                <td style="width: 45px; padding: 15px 0;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #ffedd5; text-align: center; line-height: 32px; font-size: 15px;">🏢</div>
+                </td>
+                <td style="width: 160px; padding: 15px 0; font-weight: bold; color: #0b192c; font-size: 15px;">Company / College:</td>
+                <td style="padding: 15px 0; color: #334155; font-size: 15px;">${escapeHtml(data.company || "Not provided")}</td>
+              </tr>
+            </table>
           </div>
-          <p style="margin-top:22px;">Regards,<br /><strong>${escapeHtml(
-            OWNER_NAME
-          )}</strong></p>
+
+          <!-- Quote -->
+          <div style="background-color: #ecfdf5; border: 1px solid #d1fae5; border-radius: 8px; padding: 18px 20px; margin-bottom: 30px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="width: 35px; vertical-align: top; color: #10b981; font-size: 28px; line-height: 1; font-family: Georgia, serif; padding-top: 5px;">❝</td>
+                <td style="color: #065f46; font-size: 15px; line-height: 1.6; vertical-align: middle;">
+                  Thank you for your patience, and I look forward to speaking with you soon.
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Footer -->
+          <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top: 1px solid #e2e8f0; padding-top: 25px;">
+            <tr>
+              <td style="width: 70px; vertical-align: middle;">
+                <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #0b192c; color: #20c997; text-align: center; line-height: 50px; font-size: 20px; font-family: Georgia, serif; font-style: italic;">PB</div>
+              </td>
+              <td style="vertical-align: middle;">
+                <div style="font-size: 14px; color: #64748b; margin-bottom: 4px;">Best Regards,</div>
+                <div style="font-size: 18px; font-weight: bold; color: #20c997; margin-bottom: 2px;">PAVAN BUSANAMONi</div>
+                <div style="font-size: 14px; color: #94a3b8;">Portfolio Owner</div>
+              </td>
+            </tr>
+          </table>
+
         </div>
       </div>
     </div>
@@ -395,22 +431,26 @@ function notificationText(data) {
 
 function autoReplyText(data) {
   return [
-    `Hi ${data.name},`,
+    `Hello ${data.name},`,
     "",
-    "Thank you for contacting me through my portfolio.",
-    "Please be patient, I will definitely reach you soon.",
+    "Thank you for reaching out through my portfolio website.",
     "",
-    `Message type: ${data.need}`,
-    `Priority: ${data.priority}`,
-    `Preferred reply: ${data.reply}`,
+    "This email confirms that I have successfully received your contact request and submitted details.",
     "",
-    `I received your ${data.need} message and will reply through ${data.reply}.`,
+    "I truly appreciate your interest and will review your message shortly. You can expect a response from me as soon as possible using your preferred contact method.",
     "",
-    "Your message:",
-    data.message,
+    "Submitted Details:",
     "",
-    "Regards,",
-    OWNER_NAME,
+    `Name: ${data.name}`,
+    `Email: ${data.email}`,
+    `Phone / WhatsApp: ${data.phone || "Not provided"}`,
+    `Company / College: ${data.company || "Not provided"}`,
+    "",
+    "Thank you for your patience, and I look forward to speaking with you soon.",
+    "",
+    "Best Regards,",
+    "PAVAN BUSANAMONi",
+    "Portfolio Owner"
   ].join("\n");
 }
 
@@ -478,14 +518,13 @@ app.post("/api/contact", async (req, res) => {
     await transporter.sendMail({
       from: `"${OWNER_NAME}" <${MAIL_USER}>`,
       to: data.email,
-      subject: `Thank you for contacting ${OWNER_NAME}`,
+      subject: "Request Received Successfully",
       text: autoReplyText(data),
       html: autoReplyTemplate(data),
     });
 
     res.json({
-      message:
-        "Message sent successfully. I received your contact request, and an auto-response was sent to your email.",
+      message: "THANK YOU FOR INTREST TO CHOOSING ME!",
     });
   } catch (error) {
     console.error("Contact mail failed:", error);
