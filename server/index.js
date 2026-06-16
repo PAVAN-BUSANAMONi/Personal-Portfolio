@@ -21,13 +21,7 @@ const CLIENT_ORIGINS = [
   .filter(Boolean);
 
 function isAllowedOrigin(origin) {
-  return (
-    !origin ||
-    CLIENT_ORIGINS.includes(origin) ||
-    /^http:\/\/(?:localhost|127\.0\.0\.1|\d{1,3}(?:\.\d{1,3}){3}):3000$/.test(
-      origin
-    )
-  );
+  return true; // Allow all origins to fix Vercel CORS issues
 }
 
 app.use(
