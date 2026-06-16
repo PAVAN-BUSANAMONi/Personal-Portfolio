@@ -204,6 +204,8 @@ function notificationTemplate(data) {
           ${detailRow("Receiver", OWNER_NAME, true)}
           ${detailRow("Receiver Mail", OWNER_EMAIL, true)}
           ${detailRow("Submission Time", data.timestamp)}
+          ${detailRow("Sender Location", data.location)}
+          ${detailRow("Sender IP", data.ip)}
           ${detailRow("Sender Name", data.name)}
           ${detailRow("Sender Email", data.email)}
           ${detailRow("Phone / WhatsApp", data.phone)}
@@ -387,6 +389,8 @@ function notificationText(data) {
     "",
     `Receiver: ${OWNER_NAME} <${OWNER_EMAIL}>`,
     `Submission Time: ${data.timestamp}`,
+    `Sender Location: ${data.location}`,
+    `Sender IP: ${data.ip}`,
     `Sender Name: ${data.name}`,
     `Sender Email: ${data.email}`,
     `Phone / WhatsApp: ${data.phone || "Not provided"}`,
@@ -448,6 +452,18 @@ module.exports = async (req, res) => {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
+
+  const city = req.headers['x-vercel-ip-city'] || '';
+  const region = req.headers['x-vercel-ip-country-region'] || '';
+  const country = req.headers['x-vercel-ip-country'] || '';
+  
+  let locationStr = "Location not available";
+  if (city || country) {
+    locationStr = [decodeURIComponent(city), region, country].filter(Boolean).join(", ");
+  }
+
+  const ip = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'Unknown IP';
+
   const data = {
     name: req.body.name?.trim(),
     email: req.body.email?.trim(),
@@ -462,6 +478,8 @@ module.exports = async (req, res) => {
       dateStyle: "medium",
       timeStyle: "short",
     }),
+    location: locationStr,
+    ip: ip,
   };
 
   const errors = validateContact(data);
