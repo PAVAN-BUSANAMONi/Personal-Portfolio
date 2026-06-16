@@ -203,6 +203,7 @@ function notificationTemplate(data) {
         <table style="width:100%;border-collapse:collapse;font-size:15px;">
           ${detailRow("Receiver", OWNER_NAME, true)}
           ${detailRow("Receiver Mail", OWNER_EMAIL, true)}
+          ${detailRow("Submission Time", data.timestamp)}
           ${detailRow("Sender Name", data.name)}
           ${detailRow("Sender Email", data.email)}
           ${detailRow("Phone / WhatsApp", data.phone)}
@@ -283,7 +284,7 @@ function autoReplyTemplate(data) {
                 <div style="width: 22px; height: 22px; border-radius: 50%; background-color: #20c997; color: white; text-align: center; line-height: 22px; font-size: 12px; font-weight: bold;">✓</div>
               </td>
               <td style="padding-bottom: 15px; color: #334155; font-size: 15px; line-height: 1.5;">
-                This email confirms that I have successfully received your contact request and submitted details.
+                This email confirms that I have successfully received your contact request and submitted details on <strong>${escapeHtml(data.timestamp)}</strong>.
               </td>
             </tr>
             <tr>
@@ -310,6 +311,13 @@ function autoReplyTemplate(data) {
           <!-- Details Card -->
           <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px 25px; margin-bottom: 25px;">
             <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="width: 45px; padding: 15px 0; border-bottom: 1px solid #f1f5f9;">
+                  <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #e0e7ff; text-align: center; line-height: 32px; font-size: 15px;">🕒</div>
+                </td>
+                <td style="width: 160px; padding: 15px 0; font-weight: bold; color: #0b192c; font-size: 15px; border-bottom: 1px solid #f1f5f9;">Date & Time:</td>
+                <td style="padding: 15px 0; color: #334155; font-size: 15px; border-bottom: 1px solid #f1f5f9;">${escapeHtml(data.timestamp)}</td>
+              </tr>
               <tr>
                 <td style="width: 45px; padding: 15px 0; border-bottom: 1px solid #f1f5f9;">
                   <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #ccfbf1; text-align: center; line-height: 32px; font-size: 15px;">👤</div>
@@ -378,6 +386,7 @@ function notificationText(data) {
     "Portfolio Contact Request",
     "",
     `Receiver: ${OWNER_NAME} <${OWNER_EMAIL}>`,
+    `Submission Time: ${data.timestamp}`,
     `Sender Name: ${data.name}`,
     `Sender Email: ${data.email}`,
     `Phone / WhatsApp: ${data.phone || "Not provided"}`,
@@ -397,12 +406,13 @@ function autoReplyText(data) {
     "",
     "Thank you for reaching out through my portfolio website.",
     "",
-    "This email confirms that I have successfully received your contact request and submitted details.",
+    `This email confirms that I have successfully received your contact request and submitted details on ${data.timestamp}.`,
     "",
     "I truly appreciate your interest and will review your message shortly. You can expect a response from me as soon as possible using your preferred contact method.",
     "",
     "Submitted Details:",
     "",
+    `Date & Time: ${data.timestamp}`,
     `Name: ${data.name}`,
     `Email: ${data.email}`,
     `Phone / WhatsApp: ${data.phone || "Not provided"}`,
@@ -447,6 +457,11 @@ module.exports = async (req, res) => {
     priority: req.body.priority?.trim() || "Normal priority",
     reply: req.body.reply?.trim() || "Email",
     message: req.body.message?.trim(),
+    timestamp: new Date().toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      dateStyle: "medium",
+      timeStyle: "short",
+    }),
   };
 
   const errors = validateContact(data);
