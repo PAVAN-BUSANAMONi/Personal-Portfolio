@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-06-16T23:15:51.047Z",
+  "projectRoot": "C:\\Project's\\Portfolio-master",
+  "structure": {
+    "hasPackageJson": true,
+    "hasTsConfig": false,
+    "hasClaudeConfig": true,
+    "hasClaudeFlow": true
+  },
+  "scannedAt": 1781651751053
+}

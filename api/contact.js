@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 const path = require("path");
 
 const OWNER_NAME = "PAVAN BUSANAMONi";
-const OWNER_EMAIL = process.env.CONTACT_RECEIVER_EMAIL ? process.env.CONTACT_RECEIVER_EMAIL.trim() : "pavan.busanamoni@gmail.com";
+const OWNER_EMAIL = process.env.CONTACT_RECEIVER_EMAIL ? process.env.CONTACT_RECEIVER_EMAIL.trim() : "rocktheworld1432@gmail.com";
 const MAIL_USER = process.env.MAIL_USER ? process.env.MAIL_USER.trim() : "personal.portfolio.pavan@gmail.com";
 const MAIL_APP_PASSWORD = process.env.MAIL_APP_PASSWORD ? process.env.MAIL_APP_PASSWORD.trim() : undefined;
 
