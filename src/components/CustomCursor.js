@@ -5,9 +5,6 @@ const CustomCursor = () => {
   const cursorDotRef = useRef(null);
   const cursorOutlineRef = useRef(null);
   
-  const [isHovering, setIsHovering] = useState(false);
-  const [isMagnetic, setIsMagnetic] = useState(false);
-  const [magnetRect, setMagnetRect] = useState(null);
 
   // Use refs for mouse coordinates to avoid re-renders
   const mouse = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
@@ -95,7 +92,7 @@ const CustomCursor = () => {
     <>
       <div 
         ref={cursorOutlineRef} 
-        className={`cursor-outline ${isHovering ? "cursor-hovering" : ""} ${isMagnetic ? "cursor-magnetic" : ""}`}
+        className="cursor-outline"
       />
       <div ref={cursorDotRef} className="cursor-dot" />
     </>

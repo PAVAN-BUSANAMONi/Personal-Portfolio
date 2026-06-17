@@ -8,13 +8,6 @@ import laptopImg from "../../Assets/about.png";
 import SkillsGalaxy from "./SkillsGalaxy";
 import CareerTimeline from "./CareerTimeline";
 import "../../about-animations.css";
-import {
-  AiOutlineSafetyCertificate,
-  AiOutlineTeam,
-  AiOutlineTool,
-  AiOutlineBug,
-} from "react-icons/ai";
-import { SiAmazonaws, SiSalesforce, SiOracle, SiGoogle } from "react-icons/si";
 
 function About() {
   return (

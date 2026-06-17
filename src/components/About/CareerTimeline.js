@@ -1,9 +1,8 @@
 import React from "react";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import { MdOutlineSchool, MdWork, MdOutlineEmojiEvents } from "react-vertical-timeline-component";
-import { FaGraduationCap, FaTrophy, FaBriefcase, FaCode } from "react-icons/fa";
-import { SiAmazonaws, SiSalesforce, SiOracle, SiGoogle } from "react-icons/si";
+import { FaGraduationCap, FaBriefcase, FaCode } from "react-icons/fa";
+import { SiSalesforce, SiOracle, SiGoogle } from "react-icons/si";
 
 import "../../timeline-animations.css";
 
