@@ -1703,6 +1703,11 @@ body {
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
+.contact-form option {
+  background-color: #0c0513;
+  color: #ffffff;
+}
+
 .contact-form textarea {
   resize: vertical;
   min-height: 150px;
