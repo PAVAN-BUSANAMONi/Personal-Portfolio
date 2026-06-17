@@ -445,16 +445,35 @@ module.exports = async (req, res) => {
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
+  let ip = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || '';
+  if (ip && ip.includes(',')) {
+    ip = ip.split(',')[0].trim();
+  }
+
+  let locationStr = "Location not available";
   const city = req.headers['x-vercel-ip-city'] || '';
   const region = req.headers['x-vercel-ip-country-region'] || '';
   const country = req.headers['x-vercel-ip-country'] || '';
   
-  let locationStr = "Location not available";
   if (city || country) {
     locationStr = [decodeURIComponent(city), region, country].filter(Boolean).join(", ");
   }
 
-  const ip = req.headers['x-forwarded-for'] || req.headers['x-real-ip'] || 'Unknown IP';
+  if (ip && ip !== '::1' && ip !== '127.0.0.1' && ip !== 'Unknown IP') {
+    try {
+      const response = await fetch(`http://ip-api.com/json/${ip}`);
+      const geo = await response.json();
+      if (geo && geo.status === 'success') {
+        locationStr = `${geo.city}, ${geo.regionName}, ${geo.country} (ISP: ${geo.isp})`;
+      }
+    } catch (e) {
+      console.error("Geolocation fetch failed:", e);
+    }
+  }
+
+  if (!ip) {
+    ip = 'Unknown IP';
+  }
 
   const data = {
     name: req.body.name?.trim(),
