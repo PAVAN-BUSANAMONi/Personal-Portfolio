@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import myImg from "../../Assets/myAvatar.png";
 import Tilt from "react-parallax-tilt";
+import AchievementDashboard from "./AchievementDashboard";
 
 function Home2() {
   return (
@@ -57,6 +58,9 @@ function Home2() {
           </Col>
         </Row>
       </Container>
+      
+      {/* Achievement Dashboard Rendered Directly Below */}
+      <AchievementDashboard />
     </Container>
   );
 }

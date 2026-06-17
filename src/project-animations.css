@@ -1,0 +1,155 @@
+/* Projects Section Premium Styles */
+
+.project-card-view {
+  background: var(--surface-strong) !important;
+  backdrop-filter: blur(20px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(0, 242, 254, 0.03) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  color: white !important;
+  height: 100%;
+}
+
+.project-card-view:hover {
+  border: 1px solid rgba(0, 242, 254, 0.4) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 242, 254, 0.2), inset 0 0 20px rgba(176, 38, 255, 0.1) !important;
+}
+
+.project-card-view .card-img-top {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0.85;
+  transition: opacity 0.4s ease;
+  object-fit: cover;
+}
+
+.project-card-view:hover .card-img-top {
+  opacity: 1;
+}
+
+/* Featured Project Card */
+.featured-project-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background: var(--surface-soft) !important;
+  backdrop-filter: blur(30px) saturate(200%) !important;
+  border: 1px solid rgba(176, 38, 255, 0.3) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 30px rgba(176, 38, 255, 0.05) !important;
+  border-radius: 24px !important;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  color: white !important;
+}
+
+.featured-project-card:hover {
+  border: 1px solid rgba(176, 38, 255, 0.8) !important;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(176, 38, 255, 0.3), inset 0 0 30px rgba(0, 242, 254, 0.15) !important;
+}
+
+.featured-img-container {
+  flex: 0 0 50%;
+  position: relative;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.featured-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.featured-project-card:hover .featured-img-container img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.featured-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem !important;
+}
+
+/* Tech Stack Pills */
+.tech-stack-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.featured-body .tech-stack-container {
+  justify-content: flex-start;
+}
+
+.tech-pill {
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: var(--cyan);
+  transition: all 0.3s ease;
+}
+
+.project-card-view:hover .tech-pill {
+  border-color: rgba(0, 242, 254, 0.3);
+  background: rgba(0, 242, 254, 0.05);
+}
+
+/* Buttons */
+.project-btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border-radius: 8px !important;
+  padding: 8px 20px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.project-btn:hover {
+  background: var(--violet) !important;
+  border-color: var(--violet) !important;
+  box-shadow: 0 0 15px rgba(176, 38, 255, 0.6) !important;
+  transform: translateY(-2px) !important;
+}
+
+@media (max-width: 991px) {
+  .featured-project-card {
+    flex-direction: column;
+  }
+  .featured-img-container {
+    flex: 0 0 auto;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .featured-body {
+    padding: 2rem !important;
+  }
+  .featured-body .tech-stack-container {
+    justify-content: center;
+  }
+  .featured-body .card-title {
+    text-align: center;
+  }
+  .featured-body .card-text {
+    text-align: center !important;
+  }
+  .featured-body .d-flex {
+    justify-content: center;
+  }
+}

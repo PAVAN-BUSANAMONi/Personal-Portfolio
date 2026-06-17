@@ -1,0 +1,56 @@
+/* Premium Animations & Orbs */
+@keyframes cascadeFadeIn {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.home-header > * {
+  opacity: 0;
+  animation: cascadeFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.home-header .hero-kicker { animation-delay: 0.1s; }
+.home-header .heading { animation-delay: 0.25s; }
+.home-header .heading-name { animation-delay: 0.4s; }
+.home-header .hero-subtitle { animation-delay: 0.55s; }
+.home-header .hero-actions { animation-delay: 0.7s; }
+.home-header .hero-stats { animation-delay: 0.8s; }
+.home-header .typewriter-shell { animation-delay: 0.9s; }
+
+.hero-profile-col {
+  opacity: 0;
+  animation: cascadeFadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+}
+
+.floating-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+  animation: orbFloat 25s infinite ease-in-out alternate;
+}
+
+.orb-1 {
+  width: 600px;
+  height: 600px;
+  background: rgba(0, 242, 254, 0.15);
+  top: -10%;
+  left: -15%;
+  animation-delay: 0s;
+}
+
+.orb-2 {
+  width: 700px;
+  height: 700px;
+  background: rgba(176, 38, 255, 0.12);
+  bottom: -20%;
+  right: -10%;
+  animation-delay: -5s;
+}
+
+@keyframes orbFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 80px) scale(1.1); }
+  100% { transform: translate(-40px, -30px) scale(0.9); }
+}

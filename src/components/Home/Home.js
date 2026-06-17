@@ -7,6 +7,38 @@ import Home2 from "./Home2";
 import Type from "./Type";
 import Contact from "../Contact/Contact";
 
+const MagneticButton = ({ children, className, to }) => {
+  const buttonRef = useRef(null);
+
+  const handlePointerMove = (e) => {
+    const btn = buttonRef.current;
+    if (!btn) return;
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+  };
+
+  const handlePointerLeave = () => {
+    const btn = buttonRef.current;
+    if (!btn) return;
+    btn.style.transform = `translate(0px, 0px) scale(1)`;
+  };
+
+  return (
+    <Link
+      to={to}
+      className={className}
+      ref={buttonRef}
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      style={{ transition: "transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1)" }}
+    >
+      {children}
+    </Link>
+  );
+};
+
 function Home() {
   const nameLensTimer = useRef(null);
   const [nameActive, setNameActive] = useState(false);
@@ -43,6 +75,8 @@ function Home() {
   return (
     <section>
       <Container fluid className="home-section" id="home">
+        <div className="floating-orb orb-1"></div>
+        <div className="floating-orb orb-2"></div>
         <Particle />
         <Container className="home-content">
           <Row>
@@ -95,12 +129,12 @@ function Home() {
               </p>
 
               <div className="hero-actions">
-                <Link to="/project" className="btn-primary hero-button">
+                <MagneticButton to="/project" className="btn-primary hero-button">
                   View Projects
-                </Link>
-                <Link to="/contact" className="hero-button hero-button-outline">
+                </MagneticButton>
+                <MagneticButton to="/contact" className="hero-button hero-button-outline">
                   Hire / Contact Me
-                </Link>
+                </MagneticButton>
               </div>
 
               <div className="hero-stats" aria-label="portfolio highlights">

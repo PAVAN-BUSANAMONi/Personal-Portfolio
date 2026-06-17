@@ -1,0 +1,55 @@
+/* Vertical Timeline Premium Styles */
+
+.career-timeline-container {
+  padding: 50px 0;
+  position: relative;
+  z-index: 5;
+}
+
+/* Make the center line glow */
+.vertical-timeline::before {
+  background: linear-gradient(180deg, transparent, rgba(0, 242, 254, 0.8), rgba(176, 38, 255, 0.8), transparent) !important;
+  box-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+  width: 4px !important;
+}
+
+/* Text styles */
+.vertical-timeline-element-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+}
+
+.vertical-timeline-element-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: var(--gold);
+  font-size: 1.1rem;
+}
+
+/* Override default margins */
+.vertical-timeline-element-content {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vertical-timeline-element-content:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 242, 254, 0.2) !important;
+}
+
+/* Date styling */
+.vertical-timeline-element-date {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.2rem !important;
+  opacity: 1 !important;
+}
+
+@media only screen and (min-width: 1170px) {
+  .vertical-timeline-element-date {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+}

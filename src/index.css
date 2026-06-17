@@ -1,11 +1,14 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap'); */
-
-@import url("https://fonts.googleapis.com/css2?family=Outfit&family=PT+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=PT+Mono&display=swap");
 
 body {
   margin: 0;
-  font-family: "PT Mono", monospace !important;
+  font-family: "Inter", system-ui, -apple-system, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(to left, rgb(27 20 41), rgb(20 15 35));
+  background-color: #050505;
+}
+
+h1, h2, h3, h4, h5, h6, .heading, .heading-name, .project-heading, .navbar-brand {
+  font-family: "Outfit", system-ui, sans-serif !important;
+  letter-spacing: -0.02em;
 }

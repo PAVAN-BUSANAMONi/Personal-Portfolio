@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Particle from "../Particle";
-import { AiFillGithub, AiOutlineMail, AiOutlineSend } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import { AiFillGithub, AiOutlineMail, AiOutlineSend, AiOutlineFileText } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
+import "../../contact-animations.css";
 
 function getContactApiUrls() {
   const urls = [];
@@ -129,7 +131,7 @@ function Contact() {
             </p>
 
             <div className="contact-info-grid">
-              <a href="mailto:pavan.busanamoni@gmail.com" className="contact-info-card">
+              <a href="mailto:pavan.busanamoni@gmail.com" className="contact-info-card glass-card hover-glow">
                 <AiOutlineMail />
                 <span>
                   <strong>Email</strong>
@@ -137,10 +139,10 @@ function Contact() {
                 </span>
               </a>
               <a
-                href="https://www.linkedin.com/in/busanamoni-pavan-3180812b5?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                href="https://www.linkedin.com/in/busanamoni-pavan-3180812b5"
                 target="_blank"
                 rel="noreferrer"
-                className="contact-info-card"
+                className="contact-info-card glass-card hover-glow"
               >
                 <FaLinkedinIn />
                 <span>
@@ -152,7 +154,7 @@ function Contact() {
                 href="https://github.com/PAVAN-BUSANAMONi"
                 target="_blank"
                 rel="noreferrer"
-                className="contact-info-card"
+                className="contact-info-card glass-card hover-glow"
               >
                 <AiFillGithub />
                 <span>
@@ -160,12 +162,19 @@ function Contact() {
                   PAVAN-BUSANAMONi
                 </span>
               </a>
+              <Link to="/resume" className="contact-info-card glass-card hover-glow">
+                <AiOutlineFileText />
+                <span>
+                  <strong>Resume</strong>
+                  View My Qualifications
+                </span>
+              </Link>
             </div>
           </Col>
 
           <Col lg={7}>
             <form
-              className="contact-form"
+              className="contact-form glass-form"
               action={contactApiUrls[0]}
               method="POST"
               onSubmit={handleSubmit}
@@ -259,11 +268,13 @@ function Contact() {
                 />
               </label>
 
-              {formStatus.message && (
-                <p className={`contact-status ${formStatus.type}`}>
-                  {formStatus.message}
-                </p>
-              )}
+              <div className={`validation-container ${formStatus.type ? "show" : ""}`}>
+                {formStatus.message && (
+                  <p className={`contact-status ${formStatus.type}`}>
+                    {formStatus.message}
+                  </p>
+                )}
+              </div>
 
               <button type="submit" className="contact-submit" disabled={isSending}>
                 <AiOutlineSend />{" "}

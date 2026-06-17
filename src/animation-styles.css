@@ -1,0 +1,18 @@
+/* Global Animation Styles */
+
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cyan), var(--violet));
+  transform-origin: 0%;
+  z-index: 9999999;
+  box-shadow: 0 0 15px var(--cyan);
+}
+
+/* Base properties for staggered elements */
+.motion-reveal {
+  opacity: 0;
+}

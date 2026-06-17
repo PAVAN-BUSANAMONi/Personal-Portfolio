@@ -1,0 +1,56 @@
+/* Achievement Dashboard Premium Styles */
+
+.achievement-section {
+  padding-bottom: 50px;
+  position: relative;
+  z-index: 5;
+}
+
+.achievement-card {
+  background: var(--surface-strong);
+  backdrop-filter: blur(25px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 242, 254, 0.05);
+  border-radius: 16px;
+  padding: 30px 15px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.achievement-card:hover {
+  transform: translateY(-10px);
+  border: 1px solid rgba(0, 242, 254, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 242, 254, 0.2), inset 0 0 20px rgba(176, 38, 255, 0.1);
+}
+
+.achievement-number {
+  font-family: 'Outfit', sans-serif;
+  font-size: 3rem !important;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover .achievement-number {
+  color: var(--cyan);
+  text-shadow: 0 0 20px rgba(0, 242, 254, 0.8);
+}
+
+.achievement-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.achievement-card:hover .achievement-label {
+  color: rgba(255, 255, 255, 0.9);
+}
