@@ -28,8 +28,8 @@ function escapeHtml(value = "") {
 function detailRow(label, value, highlight = false) {
   return `
     <tr>
-      <td style="padding:12px 14px;border-bottom:1px solid #e6edf5;color:#64748b;font-weight:700;width:190px;">${label}</td>
-      <td style="padding:12px 14px;border-bottom:1px solid #e6edf5;color:#0f172a;${
+      <td style="padding:10px 12px;border-bottom:1px solid #e6edf5;color:#64748b;font-weight:700;width:35%;min-width:90px;font-size:14px;word-break:break-word;">${label}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid #e6edf5;color:#0f172a;font-size:14px;word-break:break-word;${
         highlight ? "font-weight:800;background:#ecfeff;" : ""
       }">${escapeHtml(value || "Not provided")}</td>
     </tr>
@@ -141,12 +141,12 @@ function badge(value, theme) {
 function highlightedRow(label, value, theme, note) {
   return `
     <tr>
-      <td style="padding:14px;border-bottom:1px solid #e6edf5;color:#64748b;font-weight:800;width:190px;">${label}</td>
-      <td style="padding:14px;border-bottom:1px solid #e6edf5;background:${theme.bg};border-left:5px solid ${theme.accent};color:${theme.text};">
-        <div style="font-size:16px;font-weight:950;">${escapeHtml(
+      <td style="padding:10px 12px;border-bottom:1px solid #e6edf5;color:#64748b;font-weight:800;width:35%;min-width:90px;font-size:14px;word-break:break-word;">${label}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid #e6edf5;background:${theme.bg};border-left:5px solid ${theme.accent};color:${theme.text};word-break:break-word;">
+        <div style="font-size:15px;font-weight:950;line-height:1.2;">${escapeHtml(
           value || "Not provided"
         )}</div>
-        <div style="margin-top:4px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:${theme.text};opacity:.82;">${escapeHtml(
+        <div style="margin-top:4px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:${theme.text};opacity:.82;line-height:1.2;">${escapeHtml(
           note
         )}</div>
       </td>
@@ -159,46 +159,38 @@ function notificationTemplate(data) {
   const needTheme = getNeedTheme(data.need);
 
   return `
-    <div style="font-family:Inter,Arial,sans-serif;background:#f5f8fb;padding:28px;">
+    <div style="font-family:Inter,Arial,sans-serif;background:#f5f8fb;padding:12px;">
       <div style="max-width:720px;margin:0 auto;background:#ffffff;border:1px solid #dbe6f0;border-radius:14px;overflow:hidden;">
-        <div style="background:linear-gradient(135deg,#0f172a,#164e63);padding:26px 28px;color:#ffffff;">
-          <p style="margin:0 0 10px;color:#67e8f9;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Portfolio Contact Request</p>
-          <h1 style="margin:0;font-size:28px;line-height:1.2;">${escapeHtml(
+        <div style="background:linear-gradient(135deg,#0f172a,#164e63);padding:24px 20px;color:#ffffff;">
+          <p style="margin:0 0 10px;color:#67e8f9;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;">Portfolio Contact Request</p>
+          <h1 style="margin:0;font-size:24px;line-height:1.2;">${escapeHtml(
             data.priority
           )} from ${escapeHtml(data.name)}</h1>
-          <p style="margin:12px 0 0;color:#d1fae5;font-weight:700;">${escapeHtml(
+          <p style="margin:10px 0 0;font-size:14px;color:#d1fae5;font-weight:700;">${escapeHtml(
             data.need
           )} • Reply by ${escapeHtml(data.reply)}</p>
         </div>
-        <div style="padding:18px 28px 6px;background:#ffffff;">
-          <table style="width:100%;border-collapse:separate;border-spacing:0 10px;">
-            <tr>
-              <td style="width:50%;padding:0 8px 0 0;">
-                <div style="border:1px solid ${needTheme.border};border-left:7px solid ${needTheme.accent};border-radius:12px;background:${needTheme.bg};padding:16px;">
-                  <div style="margin-bottom:8px;color:${needTheme.text};font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;">Contact Need</div>
-                  <div style="color:${needTheme.text};font-size:20px;font-weight:950;line-height:1.25;">${escapeHtml(
-                    data.need
-                  )}</div>
-                  <div style="margin-top:8px;">${badge(
-                    needTheme.label,
-                    needTheme
-                  )}</div>
-                </div>
-              </td>
-              <td style="width:50%;padding:0 0 0 8px;">
-                <div style="border:1px solid ${priorityTheme.border};border-left:7px solid ${priorityTheme.accent};border-radius:12px;background:${priorityTheme.bg};padding:16px;">
-                  <div style="margin-bottom:8px;color:${priorityTheme.text};font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;">Priority</div>
-                  <div style="color:${priorityTheme.text};font-size:20px;font-weight:950;line-height:1.25;">${escapeHtml(
-                    data.priority
-                  )}</div>
-                  <div style="margin-top:8px;">${badge(
-                    priorityTheme.label,
-                    priorityTheme
-                  )}</div>
-                </div>
-              </td>
-            </tr>
-          </table>
+        <div style="padding:15px;background:#ffffff;">
+          <div style="margin-bottom:10px;border:1px solid ${needTheme.border};border-left:5px solid ${needTheme.accent};border-radius:12px;background:${needTheme.bg};padding:14px;">
+            <div style="margin-bottom:6px;color:${needTheme.text};font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;">Contact Need</div>
+            <div style="color:${needTheme.text};font-size:18px;font-weight:950;line-height:1.25;word-break:break-word;">${escapeHtml(
+              data.need
+            )}</div>
+            <div style="margin-top:6px;">${badge(
+              needTheme.label,
+              needTheme
+            )}</div>
+          </div>
+          <div style="margin-bottom:0;border:1px solid ${priorityTheme.border};border-left:5px solid ${priorityTheme.accent};border-radius:12px;background:${priorityTheme.bg};padding:14px;">
+            <div style="margin-bottom:6px;color:${priorityTheme.text};font-size:11px;font-weight:950;text-transform:uppercase;letter-spacing:.08em;">Priority</div>
+            <div style="color:${priorityTheme.text};font-size:18px;font-weight:950;line-height:1.25;word-break:break-word;">${escapeHtml(
+              data.priority
+            )}</div>
+            <div style="margin-top:6px;">${badge(
+              priorityTheme.label,
+              priorityTheme
+            )}</div>
+          </div>
         </div>
         <table style="width:100%;border-collapse:collapse;font-size:15px;">
           ${detailRow("Receiver", OWNER_NAME, true)}
