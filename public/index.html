@@ -1,41 +1,838 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <title>PAVAN BUSANAMONi | Portfolio</title>
-  <meta name="description" content="Self Developed personal website build with React.js">
-
-  <!-- Google / Search Engine Tags -->
-  <meta itemprop="name" content="PAVAN BUSANAMONi | Portfolio">
-  <meta itemprop="description" content="Self Developed personal website build with React.js">
-  <meta itemprop="image"
-    content="https://raw.githubusercontent.com/soumyajit4419/Portfolio/master/Images/readme-img.png?token=AK7VCIF5RYEUZZAURELPTAC76U6AK">
-
-  <!-- Facebook Meta Tags -->
-  <meta property="og:url" content="https://soumyajit.vercel.app">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="PAVAN BUSANAMONi | Portfolio">
-  <meta property="og:description" content="Self Developed personal website build with React.js">
-  <meta property="og:image"
-    content="https://raw.githubusercontent.com/soumyajit4419/Portfolio/master/Images/readme-img.png?token=AK7VCIF5RYEUZZAURELPTAC76U6AK">
-
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="PAVAN BUSANAMONi | Portfolio">
-  <meta name="twitter:description" content="Self Developed personal website build with React.js">
-  <meta name="twitter:image"
-    content="https://raw.githubusercontent.com/soumyajit4419/Portfolio/master/Images/readme-img.png?token=AK7VCIF5RYEUZZAURELPTAC76U6AK">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PAVAN BUSANAMONi — Full Stack Developer Portfolio</title>
+  <meta name="description" content="Portfolio of Pavan Busanamoni — Full Stack Developer, AI & Cloud Engineer." />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-</body>
+  <main class="site-shell">
+    <!-- Cinematic Sticky Scroll Section -->
+    <section class="cinema-scroll" id="cinema" aria-label="Mostar cinematic scroll story">
+      <div class="stage">
+        <div class="world">
+          <img class="scene-img sky-img" src="https://raft-blast-61784561.figma.site/_assets/v11/16b5007d9c93971e26ffe4e0e3e37946f6bd538c.png" alt="" />
+          <header class="site-header" aria-label="Primary navigation">
+            <a class="site-logo" href="#cinema">PAVAN BUSANAMONi</a>
+            <nav class="site-nav" aria-label="Main menu">
+              <a href="#cinema" id="nav-intro">Intro</a>
+              <a href="#about-section" id="nav-about">About</a>
+              <a href="#skills-section" id="nav-skills">Skills</a>
+              <a href="#timeline-section" id="nav-timeline">Timeline</a>
+              <a href="#projects-section" id="nav-projects">Projects</a>
+              <a href="#contact-section" id="nav-contact">Contact</a>
+            </nav>
+            <button class="language-switcher" id="open-contact-btn" aria-label="Hire me or contact">
+              <span>HIRE ME</span>
+              <span aria-hidden="true">↗</span>
+            </button>
+          </header>
+          <div class="back-stack">
+            <img class="scene-img back-img back-four" src="https://raft-blast-61784561.figma.site/_assets/v11/8a7f8af50e0ce92ec2e228e7b0b4112178c51cf1.png" alt="" />
+            <section class="sights-slider" aria-label="Featured projects slider">
+              <div class="sights-track">
+                <!-- Card 1: Smart Agriculture Assistant (Vercel Deployed) -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Open Smart Agriculture Assistant project" data-link="https://smart-agriculture-assistant-backend.vercel.app">
+                  <span class="sight-kicker">AI & Full Stack • Vercel</span>
+                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230438_d526b8b6-8a2e-4e3b-9993-3908acae03a7.png" alt="" />
+                  <h3>Smart Agriculture</h3>
+                  <p>AI assistant with ML crop recommendations, soil nutrient insights & Gemini AI advisory.</p>
+                </article>
+                <!-- Card 2: PPT Generator Engine -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Open PPT Generator project" data-link="https://github.com/PAVAN-BUSANAMONi/ppt-generator">
+                  <span class="sight-kicker">TypeScript Engine</span>
+                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230442_140bc25b-b165-4249-904a-f708bff6970e.png" alt="" />
+                  <h3>PPT Generator</h3>
+                  <p>Deterministic slide rendering engine generating PPTX decks directly from JSON schemas.</p>
+                </article>
+                <!-- Card 3: Vibe Guru Music Streaming -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Open Vibe Guru Music Streaming project" data-link="https://github.com/PAVAN-BUSANAMONi/Vibe-Guru-Music-Streaming">
+                  <span class="sight-kicker">React & Web Audio</span>
+                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230448_825949c9-ccdb-4857-b4a6-e349eccc9010.png" alt="" />
+                  <h3>Vibe Guru Music</h3>
+                  <p>Interactive music streaming web app with audio frequency visualizers & custom playlist queue.</p>
+                </article>
+                <!-- Card 4: VoiceMail Android App -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Open VoiceMail project" data-link="https://github.com/PAVAN-BUSANAMONi/VoiceMail">
+                  <span class="sight-kicker">Kotlin & Voice AI</span>
+                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230438_d526b8b6-8a2e-4e3b-9993-3908acae03a7.png" alt="" />
+                  <h3>VoiceMail App</h3>
+                  <p>Accessibility-first voice mailing assistant for speech-to-text email composition & listening.</p>
+                </article>
+                <!-- Card 5: Garage Services Suite -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Open Garage Services project" data-link="https://github.com/PAVAN-BUSANAMONi/garage-services">
+                  <span class="sight-kicker">Enterprise & Java</span>
+                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230442_140bc25b-b165-4249-904a-f708bff6970e.png" alt="" />
+                  <h3>Garage Services</h3>
+                  <p>Multi-tier automotive garage management with Java Swing desktop UI & Node.js Express API.</p>
+                </article>
+                <!-- Card 6: Drug Solubility Machine Learning -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Open Drug Solubility ML project" data-link="https://github.com/PAVAN-BUSANAMONi/comp-chemistry-minor-project">
+                  <span class="sight-kicker">Python & ML Science</span>
+                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230448_825949c9-ccdb-4857-b4a6-e349eccc9010.png" alt="" />
+                  <h3>Drug Solubility ML</h3>
+                  <p>Computational chemistry workflow predicting anticancer drug solubility from PubChem data.</p>
+                </article>
+                <!-- Card 7: Bank Management System -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Open Bank Management System project" data-link="https://github.com/PAVAN-BUSANAMONi/bank_management_system">
+                  <span class="sight-kicker">PHP & Core Banking</span>
+                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230442_140bc25b-b165-4249-904a-f708bff6970e.png" alt="" />
+                  <h3>Bank Management</h3>
+                  <p>Secure banking system with account management, real-time fund transfers & audit ledger.</p>
+                </article>
+                <!-- Card 8: Personal 3D Portfolio (Vercel Deployed) -->
+                <article class="sight-card" tabindex="0" role="button" aria-label="Open Personal Portfolio project" data-link="https://personal-portfolio-eight-flame-97.vercel.app">
+                  <span class="sight-kicker">3D Creative Web • Vercel</span>
+                  <img class="sight-pin" src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260730_230438_d526b8b6-8a2e-4e3b-9993-3908acae03a7.png" alt="" />
+                  <h3>Personal Portfolio</h3>
+                  <p>Cinematic 3D developer portfolio with parallax physics, interactive slider & smooth transitions.</p>
+                </article>
+              </div>
+            </section>
+            <img class="scene-img back-img back-bazaar" src="https://raft-blast-61784561.figma.site/_assets/v11/864afe00e41e2fa20a5aa546e15cb807e0f81384.png" alt="" />
+          </div>
+          <div class="sights-controls" aria-label="Slider controls">
+            <button class="sight-nav sight-prev" aria-label="Previous project">←</button>
+            <button class="sight-nav sight-next" aria-label="Next project">→</button>
+          </div>
+          <h1 class="hero-title" id="movable-hero-title">PAVAN</h1>
+          <img class="scene-img splitframe-img splitframe-left" src="https://raft-blast-61784561.figma.site/_assets/v11/7536d7b60a1fce482cf6edf3f0bffd3bad5d0f8a.png" alt="" />
+          <img class="scene-img splitframe-img splitframe-right" src="./splitframe-right-custom.png" alt="" />
+          <img class="scene-img bridge-img" src="https://raft-blast-61784561.figma.site/_assets/v11/c6a6d8ef49bca43f708aa852692942c45ec950d4.png" alt="" />
+          <img class="scene-img frame-two-img" src="https://raft-blast-61784561.figma.site/_assets/v11/ba75252bab2b1c510987b74837770f7bc8a6b2d4.png" alt="" />
+          <div class="shade"></div>
 
+
+
+
+
+
+
+        </div>
+        <section class="intro-copy" aria-label="Developer overview">
+          <p>Full Stack Developer & AI engineer crafting scalable web applications, modern interactive UI, and cloud-ready microservices.</p>
+          <div class="hero-tags" aria-label="Developer highlights">
+            <span>React & Next.js</span>
+            <span>Spring Boot & Node.js</span>
+            <span>Cloud & AI</span>
+          </div>
+        </section>
+        <section class="story-panel story-panel-bridge" aria-label="Engineering compass">
+          <h2>Engineering scalable digital experiences.</h2>
+          <p>Building high-performance software across frontend, microservices, and databases with strict security, clean design, and continuous delivery.</p>
+          <dl class="facts">
+            <div>
+              <dt>10+</dt>
+              <dd>Projects Completed & Deployed</dd>
+            </div>
+            <div>
+              <dt>8.9</dt>
+              <dd>CGPA • B.Tech CSE at KL University</dd>
+            </div>
+          </dl>
+        </section>
+        <section class="story-panel story-panel-bazaar" aria-label="Featured projects and impact">
+          <h2>Crafted with precision, delivered with impact.</h2>
+          <p>From AI-driven Smart Agriculture and full-stack Job Portals to real-time streaming platforms and microservice backends.</p>
+          <button class="note-button" id="open-contact-modal-btn">
+            <span aria-hidden="true">↗</span>
+            <span>Get in touch / Contact Pavan</span>
+          </button>
+        </section>
+      </div>
+    </section>
+
+    <!-- Comprehensive Portfolio Content Sections -->
+    <div class="portfolio-content-flow">
+      
+      <!-- 1. Impact / Achievement Dashboard -->
+      <section class="portfolio-section" id="about-section">
+        <div class="section-container">
+          <div class="section-heading-wrap">
+            <span class="section-kicker">Key Metrics</span>
+            <h2 class="section-title">My Impact Dashboard</h2>
+            <p class="section-subtitle">A quantifiable summary of my academic achievements, industry certifications, and technical projects.</p>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-value">8.9</div>
+              <div class="metric-label">CGPA (B.Tech CSE)</div>
+              <div class="metric-sub">KL University</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">10+</div>
+              <div class="metric-label">Projects Completed</div>
+              <div class="metric-sub">Full Stack & AI</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">5+</div>
+              <div class="metric-label">Global Certifications</div>
+              <div class="metric-sub">Oracle, Salesforce, Google</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">14+</div>
+              <div class="metric-label">Technical Skills</div>
+              <div class="metric-sub">Languages & Frameworks</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-value">2+</div>
+              <div class="metric-label">Internships</div>
+              <div class="metric-sub">EduSkills & Google GenAI</div>
+            </div>
+          </div>
+
+          <!-- About Journey Card -->
+          <div class="about-journey-card">
+            <div class="journey-left">
+              <h3>The Journey of PAVAN BUSANAMONi</h3>
+              <p>
+                Hi everyone! I'm <strong>PAVAN BUSANAMONi</strong> from <strong>Vijayawada, India</strong>. 
+                I'm currently a 3rd year <strong>B.Tech Computer Science and Engineering</strong> student at <strong>KL University</strong>.
+              </p>
+              <p>
+                I am deeply passionate about engineering robust software solutions, exploring emerging AI models, and building scalable real-world applications. My foundation is built on strong problem-solving skills across programming, modern web development, and cloud-native databases.
+              </p>
+              <div class="journey-quote">
+                "Strive to build things that make a difference!"
+              </div>
+            </div>
+            <div class="journey-right">
+              <div class="journey-box">
+                <h4>🎓 Education</h4>
+                <ul>
+                  <li><strong>B.Tech CSE</strong> — KL University (2024–2027) • <em>CGPA: 8.9</em></li>
+                  <li><strong>Diploma</strong> — Govt. Polytechnic Gadwal (2022–2024) • <em>70%</em></li>
+                  <li><strong>Schooling</strong> — ZPHS Kalwarala • <em>10 GPA</em></li>
+                </ul>
+              </div>
+              <div class="journey-box">
+                <h4>🎯 Interests</h4>
+                <div class="interests-tags">
+                  <span>🏏 Playing Cricket</span>
+                  <span>♟️ Chess</span>
+                  <span>📖 Tech Articles</span>
+                  <span>🎮 Gaming</span>
+                  <span>🧩 Rubik's Cube</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Technical Skills & Tools -->
+      <section class="portfolio-section" id="skills-section">
+        <div class="section-container">
+          <div class="section-heading-wrap">
+            <span class="section-kicker">Expertise</span>
+            <h2 class="section-title">Technical Skill Set</h2>
+            <p class="section-subtitle">Technologies, frameworks, and developer tools I leverage to build scalable software.</p>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-category-card">
+              <h3>⚡ Languages</h3>
+              <div class="skill-pill-wrap">
+                <span class="skill-pill">Python</span>
+                <span class="skill-pill">Java</span>
+                <span class="skill-pill">C / C++</span>
+                <span class="skill-pill">JavaScript (ES6+)</span>
+                <span class="skill-pill">TypeScript</span>
+                <span class="skill-pill">SQL</span>
+              </div>
+            </div>
+
+            <div class="skill-category-card">
+              <h3>🎨 Frontend Development</h3>
+              <div class="skill-pill-wrap">
+                <span class="skill-pill">React.js</span>
+                <span class="skill-pill">Next.js</span>
+                <span class="skill-pill">Tailwind CSS</span>
+                <span class="skill-pill">HTML5 / CSS3</span>
+                <span class="skill-pill">Bootstrap</span>
+                <span class="skill-pill">Three.js / Canvas</span>
+              </div>
+            </div>
+
+            <div class="skill-category-card">
+              <h3>⚙️ Backend & APIs</h3>
+              <div class="skill-pill-wrap">
+                <span class="skill-pill">Spring Boot</span>
+                <span class="skill-pill">Node.js</span>
+                <span class="skill-pill">Express.js</span>
+                <span class="skill-pill">RESTful APIs</span>
+                <span class="skill-pill">JWT Authentication</span>
+                <span class="skill-pill">Socket.IO</span>
+              </div>
+            </div>
+
+            <div class="skill-category-card">
+              <h3>🗄️ Databases & Cloud</h3>
+              <div class="skill-pill-wrap">
+                <span class="skill-pill">MySQL</span>
+                <span class="skill-pill">MongoDB</span>
+                <span class="skill-pill">Oracle DB</span>
+                <span class="skill-pill">Git & GitHub</span>
+                <span class="skill-pill">Docker</span>
+                <span class="skill-pill">Vercel & Cloud</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Career & Experience Timeline -->
+      <!-- 3. Career & Experience Timeline (River Flow) -->
+      <section class="portfolio-section" id="timeline-section">
+        <div class="section-container">
+          <div class="section-heading-wrap">
+            <span class="section-kicker">Career Milestones</span>
+            <h2 class="section-title">My Career & Education Journey</h2>
+            <p class="section-subtitle">An evolving river of academic achievements, industry internships, and global certifications.</p>
+          </div>
+
+          <div class="timeline-river-wrap">
+            <div class="river-stream-line" aria-hidden="true">
+              <div class="river-water-flow"></div>
+            </div>
+
+            <!-- River Step 1: Oracle -->
+            <div class="river-milestone-item river-item-left">
+              <div class="river-node-beacon" style="--node-color: #ff4757; --glow-color: rgba(255, 71, 87, 0.5);">
+                <div class="river-ripple"></div>
+                <div class="river-node-badge">OCI</div>
+              </div>
+              <div class="river-milestone-card">
+                <div class="river-card-header">
+                  <span class="river-date-badge">2025</span>
+                  <span class="river-type-tag">Global Certification</span>
+                </div>
+                <h3 style="color:#ff6b81;">Oracle Certified Associate</h3>
+                <h4>Cloud Infrastructure Architect Associate</h4>
+                <p>Demonstrated core expertise in architecting, deploying, and securing enterprise cloud infrastructure using Oracle Cloud technologies.</p>
+              </div>
+            </div>
+
+            <!-- River Step 2: Salesforce -->
+            <div class="river-milestone-item river-item-right">
+              <div class="river-node-beacon" style="--node-color: #00a8ff; --glow-color: rgba(0, 168, 255, 0.5);">
+                <div class="river-ripple"></div>
+                <div class="river-node-badge">AI</div>
+              </div>
+              <div class="river-milestone-card">
+                <div class="river-card-header">
+                  <span class="river-date-badge">2024</span>
+                  <span class="river-type-tag">AI Certification</span>
+                </div>
+                <h3 style="color:#38bdf8;">Salesforce Certified</h3>
+                <h4>AI Associate</h4>
+                <p>Validated knowledge in AI concepts, predictive analytics, data management, and ethical AI implementation across business workflows.</p>
+              </div>
+            </div>
+
+            <!-- River Step 3: EduSkills AP -->
+            <div class="river-milestone-item river-item-left">
+              <div class="river-node-beacon" style="--node-color: #b026ff; --glow-color: rgba(176, 38, 255, 0.5);">
+                <div class="river-ripple"></div>
+                <div class="river-node-badge">💼</div>
+              </div>
+              <div class="river-milestone-card">
+                <div class="river-card-header">
+                  <span class="river-date-badge">2024</span>
+                  <span class="river-type-tag">Industry Internship</span>
+                </div>
+                <h3 style="color:#c084fc;">EduSkills AP Internship</h3>
+                <h4>Short-Term Intern (120 Hours)</h4>
+                <p>Completed intensive, hands-on engineering in modern full-stack web architectures, agile collaboration, automated testing, and cloud deployment.</p>
+              </div>
+            </div>
+
+            <!-- River Step 4: KL University -->
+            <div class="river-milestone-item river-item-right">
+              <div class="river-node-beacon" style="--node-color: #00f2fe; --glow-color: rgba(0, 242, 254, 0.5);">
+                <div class="river-ripple"></div>
+                <div class="river-node-badge">🎓</div>
+              </div>
+              <div class="river-milestone-card">
+                <div class="river-card-header">
+                  <span class="river-date-badge">2024 - 2027</span>
+                  <span class="river-type-tag">Undergraduate Degree</span>
+                </div>
+                <h3 style="color:#67e8f9;">B.Tech Computer Science & Engineering</h3>
+                <h4>KL University, Vijayawada • CGPA: 8.9</h4>
+                <p>Deepening specialization in Data Structures, Algorithms, Artificial Intelligence, and scalable web platforms with consistent academic excellence.</p>
+              </div>
+            </div>
+
+            <!-- River Step 5: Google -->
+            <div class="river-milestone-item river-item-left">
+              <div class="river-node-beacon" style="--node-color: #f59e0b; --glow-color: rgba(245, 158, 11, 0.5);">
+                <div class="river-ripple"></div>
+                <div class="river-node-badge">G</div>
+              </div>
+              <div class="river-milestone-card">
+                <div class="river-card-header">
+                  <span class="river-date-badge">2023</span>
+                  <span class="river-type-tag">AICTE Verified</span>
+                </div>
+                <h3 style="color:#fcd34d;">Google Generative AI</h3>
+                <h4>Virtual Internship</h4>
+                <p>Explored Large Language Models, prompt engineering techniques, and practical GenAI integration patterns into real-world software.</p>
+              </div>
+            </div>
+
+            <!-- River Step 6: Diploma -->
+            <div class="river-milestone-item river-item-right">
+              <div class="river-node-beacon" style="--node-color: #10b981; --glow-color: rgba(16, 185, 129, 0.5);">
+                <div class="river-ripple"></div>
+                <div class="river-node-badge">📜</div>
+              </div>
+              <div class="river-milestone-card">
+                <div class="river-card-header">
+                  <span class="river-date-badge">2022 - 2024</span>
+                  <span class="river-type-tag">Technical Foundation</span>
+                </div>
+                <h3 style="color:#34d399;">Diploma in Engineering</h3>
+                <h4>Govt. Polytechnic Gadwal • 70%</h4>
+                <p>Built a rock-solid foundation in computer programming, electronics, computer architecture, and practical engineering methodologies.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Projects Showcase (Comprehensive Grid) -->
+      <section class="portfolio-section" id="projects-section">
+        <div class="section-container">
+          <div class="section-heading-wrap">
+            <span class="section-kicker">Portfolio Works</span>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Real-world applications spanning AI platforms, enterprise web portals, streaming apps, and core systems.</p>
+          </div>
+
+          <!-- Project Filter Tabs -->
+          <div class="projects-tab-nav" role="tablist" aria-label="Filter projects by category">
+            <button class="project-tab-btn is-active" role="tab" aria-selected="true" data-filter="all">
+              <span class="tab-icon">🌟</span>
+              <span>All Projects</span>
+              <span class="tab-count">8</span>
+            </button>
+            <button class="project-tab-btn" role="tab" aria-selected="false" data-filter="ai">
+              <span class="tab-icon">🤖</span>
+              <span>AI & Machine Learning</span>
+              <span class="tab-count">3</span>
+            </button>
+            <button class="project-tab-btn" role="tab" aria-selected="false" data-filter="fullstack">
+              <span class="tab-icon">🌐</span>
+              <span>Full Stack & Web</span>
+              <span class="tab-count">4</span>
+            </button>
+            <button class="project-tab-btn" role="tab" aria-selected="false" data-filter="devtools">
+              <span class="tab-icon">⚙️</span>
+              <span>Dev Tools & Systems</span>
+              <span class="tab-count">3</span>
+            </button>
+            <button class="project-tab-btn" role="tab" aria-selected="false" data-filter="mobile-media">
+              <span class="tab-icon">📱</span>
+              <span>Mobile & Media</span>
+              <span class="tab-count">2</span>
+            </button>
+          </div>
+
+          <div class="projects-detailed-grid" id="projects-grid">
+            <!-- Project 1: Smart Agriculture Assistant (Featured + Vercel) -->
+            <div class="project-detailed-card featured-highlight" data-category="ai fullstack">
+              <div class="project-preview-wrap">
+                <img src="./public/projects/smart-agriculture-demo.jpg" alt="Smart Agriculture Assistant UI Demo" class="project-preview-img" loading="lazy" />
+                <div class="project-featured-tag">★ Featured AI Platform • Live Deployed</div>
+              </div>
+              <div class="project-card-body">
+                <h3>Smart Agriculture Assistant</h3>
+                <p>An intelligent AI agricultural platform designed to empower farmers with machine-learning crop recommendations, plant disease diagnostics, soil nutrient optimization, localized weather forecasts, and government scheme alerts with Gemini AI integration.</p>
+                <div class="project-tech-tags">
+                  <span>React</span>
+                  <span>TypeScript</span>
+                  <span>Tailwind CSS</span>
+                  <span>Google Gemini AI</span>
+                  <span>Node.js</span>
+                  <span>MongoDB</span>
+                  <span>Socket.io</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://smart-agriculture-assistant-backend-6e64j4s8w.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-live">
+                    Live Demo ⚡
+                  </a>
+                  <a href="https://github.com/PAVAN-BUSANAMONi/Smart-Agriculture-Assistant" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-github">
+                    GitHub Code ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2: PPT Generator Engine -->
+            <div class="project-detailed-card" data-category="devtools">
+              <div class="project-preview-wrap">
+                <img src="./public/projects/ppt-generator-demo.jpg" alt="PPT Presentation Generator UI Demo" class="project-preview-img" loading="lazy" />
+                <div class="project-badge-tag">🛠️ TypeScript Engine</div>
+              </div>
+              <div class="project-card-body">
+                <h3>PPT Generator — Presentation Engine</h3>
+                <p>A high-speed deterministic slide rendering engine built in TypeScript. Converts structured JSON/data schemas directly into professional, valid PowerPoint (PPTX) decks with customizable visual themes and dynamic chart components.</p>
+                <div class="project-tech-tags">
+                  <span>TypeScript</span>
+                  <span>PptxGenJS</span>
+                  <span>JSZip</span>
+                  <span>Node.js</span>
+                  <span>Lucide Icons</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://github.com/PAVAN-BUSANAMONi/ppt-generator" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-github">
+                    GitHub Code ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3: Vibe Guru Music Streaming -->
+            <div class="project-detailed-card" data-category="mobile-media fullstack">
+              <div class="project-preview-wrap">
+                <img src="./public/projects/vibe-guru-demo.jpg" alt="Vibe Guru Music Streaming UI Demo" class="project-preview-img" loading="lazy" />
+                <div class="project-badge-tag">🎵 Music Streaming</div>
+              </div>
+              <div class="project-card-body">
+                <h3>Vibe Guru — Music Streaming Platform</h3>
+                <p>An interactive, responsive music streaming web application with custom player UI, dynamic audio frequency visualizers, curated playlist queues, equalizer controls, and smooth motion transitions.</p>
+                <div class="project-tech-tags">
+                  <span>React</span>
+                  <span>Vite</span>
+                  <span>Web Audio API</span>
+                  <span>Framer Motion</span>
+                  <span>Axios</span>
+                  <span>FontAwesome</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://github.com/PAVAN-BUSANAMONi/Vibe-Guru-Music-Streaming" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-github">
+                    GitHub Code ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4: VoiceMail Android App -->
+            <div class="project-detailed-card" data-category="mobile-media ai">
+              <div class="project-preview-wrap">
+                <img src="./public/projects/voicemail-demo.jpg" alt="VoiceMail Android App UI Demo" class="project-preview-img" loading="lazy" />
+                <div class="project-badge-tag">📱 Android & Voice AI</div>
+              </div>
+              <div class="project-card-body">
+                <h3>VoiceMail — Voice-Activated Mailing System</h3>
+                <p>An accessibility-focused Android application designed for visually impaired and hands-free users. Enables seamless email composition, voice command navigation, live speech-to-text transcriptions, and automated email dispatch via JavaMail.</p>
+                <div class="project-tech-tags">
+                  <span>Kotlin</span>
+                  <span>Android SDK</span>
+                  <span>Speech-to-Text</span>
+                  <span>Text-to-Speech</span>
+                  <span>JavaMail API</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://github.com/PAVAN-BUSANAMONi/VoiceMail" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-github">
+                    GitHub Code ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5: Garage Services Platform -->
+            <div class="project-detailed-card" data-category="fullstack devtools">
+              <div class="project-preview-wrap">
+                <img src="./public/projects/garage-services-demo.jpg" alt="Garage Services Platform UI Demo" class="project-preview-img" loading="lazy" />
+                <div class="project-badge-tag">🚗 Enterprise Platform</div>
+              </div>
+              <div class="project-card-body">
+                <h3>Garage Services & Fleet Suite</h3>
+                <p>A multi-tier automotive service management platform featuring automated slot booking, vehicle bay status tracking, customer scheduling, Java Swing desktop application, Node.js Express backend API, and Brevo SMTP email notifications.</p>
+                <div class="project-tech-tags">
+                  <span>Java Swing</span>
+                  <span>Node.js</span>
+                  <span>Express</span>
+                  <span>MySQL</span>
+                  <span>Nodemailer</span>
+                  <span>JWT Auth</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://github.com/PAVAN-BUSANAMONi/garage-services" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-github">
+                    GitHub Code ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 6: Computational Chemistry ML -->
+            <div class="project-detailed-card" data-category="ai">
+              <div class="project-preview-wrap">
+                <img src="./public/projects/comp-chemistry-demo.jpg" alt="Computational Chemistry ML UI Demo" class="project-preview-img" loading="lazy" />
+                <div class="project-badge-tag">🔬 Bio / ML Science</div>
+              </div>
+              <div class="project-card-body">
+                <h3>Anticancer Drug Solubility ML Predictor</h3>
+                <p>A computational chemistry and machine learning project predicting aqueous solubility (logS) of anticancer compounds using molecular descriptors from PubChem. Features regression modeling, scatter visualization, and statistical validation for pharmaceutical research.</p>
+                <div class="project-tech-tags">
+                  <span>Python</span>
+                  <span>Pandas</span>
+                  <span>NumPy</span>
+                  <span>Matplotlib</span>
+                  <span>PubChem API</span>
+                  <span>Scikit-learn</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://github.com/PAVAN-BUSANAMONi/comp-chemistry-minor-project" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-github">
+                    GitHub Code ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 7: Bank Management System -->
+            <div class="project-detailed-card" data-category="devtools fullstack">
+              <div class="project-preview-wrap">
+                <img src="./public/projects/bank-management-demo.jpg" alt="Bank Management System UI Demo" class="project-preview-img" loading="lazy" />
+                <div class="project-badge-tag">🏦 Core Banking System</div>
+              </div>
+              <div class="project-card-body">
+                <h3>Bank Management & Ledger System</h3>
+                <p>A full-featured core banking administration system handling customer account creation, real-time balance calculations, secure fund transfers between accounts, and immutable transaction audit ledgers.</p>
+                <div class="project-tech-tags">
+                  <span>PHP</span>
+                  <span>MySQL</span>
+                  <span>JavaScript</span>
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://github.com/PAVAN-BUSANAMONi/bank_management_system" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-github">
+                    GitHub Code ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 8: Personal 3D Portfolio (Vercel Deployed) -->
+            <div class="project-detailed-card featured-highlight" data-category="fullstack">
+              <div class="project-preview-wrap">
+                <img src="./public/projects/personal-portfolio-demo.jpg" alt="Personal 3D Portfolio UI Demo" class="project-preview-img" loading="lazy" />
+                <div class="project-featured-tag">★ 3D Creative Web • Live Deployed</div>
+              </div>
+              <div class="project-card-body">
+                <h3>Personal 3D Cinematic Portfolio</h3>
+                <p>An interactive, high-performance developer portfolio featuring a 3D cinematic sticky scroll narrative, physics-based movable hero typography, smooth multi-layer parallax drifting, and an instant SMTP mailing system.</p>
+                <div class="project-tech-tags">
+                  <span>JavaScript</span>
+                  <span>Three.js</span>
+                  <span>GSAP</span>
+                  <span>Vanilla CSS</span>
+                  <span>Express</span>
+                  <span>Lenis Scroll</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://personal-portfolio-eight-flame-97.vercel.app" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-live">
+                    Live Demo ⚡
+                  </a>
+                  <a href="https://github.com/PAVAN-BUSANAMONi/Personal-Portfolio" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-github">
+                    GitHub Code ↗
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Contact & Connect Section -->
+      <section class="portfolio-section" id="contact-section">
+        <div class="section-container">
+          <div class="section-heading-wrap">
+            <span class="section-kicker">Get In Touch</span>
+            <h2 class="section-title">Let's Connect & Collaborate</h2>
+            <p class="section-subtitle">Whether you have an opportunity, a project proposal, or a technical inquiry, feel free to send a message.</p>
+          </div>
+
+          <div class="contact-section-grid">
+            <div class="contact-info-panel">
+              <h3>Contact Details</h3>
+              <p>Ready to bring ideas to life. Reach out directly using any channel below:</p>
+              <div class="info-item">
+                <strong>👤 Name:</strong> PAVAN BUSANAMONi
+              </div>
+              <div class="info-item">
+                <strong>✉️ Email:</strong> <a href="mailto:pavan.busanamoni@gmail.com">pavan.busanamoni@gmail.com</a>
+              </div>
+              <div class="info-item">
+                <strong>📍 Location:</strong> Vijayawada, India
+              </div>
+              <div class="info-item">
+                <strong>🎓 Institution:</strong> KL University (B.Tech CSE)
+              </div>
+              <div class="social-links-row">
+                <a href="https://github.com/PAVAN-BUSANAMONi" target="_blank" rel="noopener noreferrer" class="social-badge">GitHub ↗</a>
+                <a href="https://www.linkedin.com/in/busanamoni-pavan-3180812b5" target="_blank" rel="noopener noreferrer" class="social-badge">LinkedIn ↗</a>
+                <a href="mailto:pavan.busanamoni@gmail.com" class="social-badge">Send Mail ↗</a>
+              </div>
+            </div>
+
+            <div class="contact-form-panel">
+              <form class="contact-form" id="page-contact-form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="page-form-name">Your Name *</label>
+                    <input type="text" id="page-form-name" name="name" required placeholder="Alex Johnson" />
+                  </div>
+                  <div class="form-group">
+                    <label for="page-form-email">Your Email *</label>
+                    <input type="email" id="page-form-email" name="email" required placeholder="alex@company.com" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="page-form-phone">Phone / WhatsApp</label>
+                    <input type="text" id="page-form-phone" name="phone" placeholder="+91 98765 43210" />
+                  </div>
+                  <div class="form-group">
+                    <label for="page-form-company">Company / College</label>
+                    <input type="text" id="page-form-company" name="company" placeholder="Company Name" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="page-form-need">Topic / Need</label>
+                    <select id="page-form-need" name="need">
+                      <option value="Hiring / Full-time Role">Hiring / Full-time Role</option>
+                      <option value="Internship Opportunity">Internship Opportunity</option>
+                      <option value="Freelance Project">Freelance Project</option>
+                      <option value="Technical Collaboration">Technical Collaboration</option>
+                      <option value="General Inquiry">General Inquiry</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="page-form-priority">Priority</label>
+                    <select id="page-form-priority" name="priority">
+                      <option value="Normal priority">Normal priority</option>
+                      <option value="Immediate attention (High)">Immediate attention (High)</option>
+                      <option value="Quick response">Quick response</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="page-form-message">Message *</label>
+                  <textarea id="page-form-message" name="message" rows="4" required placeholder="Write your message here..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="page-submit-btn">
+                  <span>Send Message Directly</span>
+                  <span class="btn-arrow" aria-hidden="true">→</span>
+                </button>
+                <div class="form-status" id="page-form-status" role="status" aria-live="polite"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <div class="footer-container">
+          <div class="footer-col">
+            <h3>Designed & Developed by PAVAN BUSANAMONi</h3>
+          </div>
+          <div class="footer-col">
+            <p>Copyright © 2026 BP • All Rights Reserved</p>
+          </div>
+          <div class="footer-col footer-socials">
+            <a href="https://github.com/PAVAN-BUSANAMONi" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/busanamoni-pavan-3180812b5" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:pavan.busanamoni@gmail.com">Email</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Interactive Contact & Details Modal -->
+  <aside class="contact-modal" id="contact-modal" aria-hidden="true" role="dialog" aria-labelledby="contact-title">
+    <div class="contact-modal-backdrop" id="contact-modal-backdrop"></div>
+    <div class="contact-modal-content">
+      <button class="contact-modal-close" id="contact-modal-close" aria-label="Close dialog">✕</button>
+      <div class="contact-modal-header">
+        <span class="contact-kicker">Direct Message</span>
+        <h2 id="contact-title">Get In Touch With Pavan</h2>
+        <p>Send a message directly to <strong>PAVAN BUSANAMONi</strong>. Delivered instantly to inbox.</p>
+      </div>
+
+      <div class="contact-details-grid">
+        <div class="contact-info-card">
+          <h4>📍 Location & Education</h4>
+          <p>Vijayawada, India<br/>KL University • B.Tech CSE (2024–2027)</p>
+          <div class="contact-links">
+            <a href="https://github.com/PAVAN-BUSANAMONi" target="_blank" rel="noopener noreferrer">GitHub Profile ↗</a>
+            <a href="https://www.linkedin.com/in/busanamoni-pavan-3180812b5" target="_blank" rel="noopener noreferrer">LinkedIn Profile ↗</a>
+            <a href="mailto:pavan.busanamoni@gmail.com">pavan.busanamoni@gmail.com ↗</a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contact-form">
+          <div class="form-group">
+            <label for="form-name">Your Name *</label>
+            <input type="text" id="form-name" name="name" required placeholder="e.g. Alex Johnson" />
+          </div>
+          <div class="form-group">
+            <label for="form-email">Your Email *</label>
+            <input type="email" id="form-email" name="email" required placeholder="alex@company.com" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-phone">Phone / WhatsApp</label>
+              <input type="text" id="form-phone" name="phone" placeholder="+91 98765 43210" />
+            </div>
+            <div class="form-group">
+              <label for="form-company">Company / Organization</label>
+              <input type="text" id="form-company" name="company" placeholder="Company Name" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-need">Need / Topic</label>
+              <select id="form-need" name="need">
+                <option value="Hiring / Full-time Role">Hiring / Full-time Role</option>
+                <option value="Internship Opportunity">Internship Opportunity</option>
+                <option value="Freelance Project">Freelance Project</option>
+                <option value="Technical Collaboration">Technical Collaboration</option>
+                <option value="General Inquiry">General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="form-priority">Priority</label>
+              <select id="form-priority" name="priority">
+                <option value="Normal priority">Normal priority</option>
+                <option value="Immediate attention (High)">Immediate attention (High)</option>
+                <option value="Quick response">Quick response</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="form-message">Message *</label>
+            <textarea id="form-message" name="message" rows="3" required placeholder="Describe your project, role, or inquiry..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn" id="submit-btn">
+            <span>Send Message</span>
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </button>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </aside>
+</body>
 </html>

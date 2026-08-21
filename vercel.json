@@ -1,7 +1,6 @@
 {
-  "framework": null,
-  "buildCommand": null,
-  "outputDirectory": ".",
+  "buildCommand": "node scripts/build.js",
+  "outputDirectory": "build",
   "rewrites": [
     {
       "source": "/api/contact",
