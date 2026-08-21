@@ -2265,9 +2265,10 @@ button {
     left: 12px;
     right: 12px;
     transform: none;
-    padding: 12px 18px;
+    padding: 10px 16px;
     border-radius: 18px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    gap: 10px;
   }
   
   .site-nav {
@@ -2296,34 +2297,37 @@ button {
     font-size: 15px;
     border-radius: 12px;
     text-align: center;
+    color: rgba(253, 241, 225, 0.9);
   }
 
   .site-nav a:hover {
     background: rgba(0, 242, 254, 0.12);
+    color: #00f2fe;
   }
 
   .hamburger-toggle {
     display: flex;
+    margin-left: auto;
   }
 
   .header-hire-btn,
   .language-switcher {
-    padding: 8px 18px;
+    padding: 8px 16px;
     font-size: 12px;
   }
 
   .site-logo {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
 @media (max-width: 768px) {
   .stage { min-height: 640px; }
-  .hero-title { top: clamp(60px, 9vh, 85px); font-size: clamp(1.5rem, 6.8vw, 2.5rem); letter-spacing: 0.1em; }
+  .hero-title { top: clamp(82px, 12vh, 110px); font-size: clamp(1.6rem, 7.5vw, 2.6rem); letter-spacing: 0.1em; }
   .bridge-img { bottom: 2vh; width: 190vw; }
   .frame-two-img { width: 176vw; }
-  .splitframe-img { width: min(200vw, 2240px); }
-  .intro-copy { bottom: 28px; padding: 16px 18px; max-width: calc(100% - 32px); }
+  .splitframe-img { display: none !important; }
+  .intro-copy { bottom: 24px; padding: 18px 20px; width: calc(100% - 32px); max-width: 480px; }
   .intro-copy p, .story-panel p { font-size: 0.95rem; }
   .hero-tags { gap: 8px; flex-wrap: wrap; justify-content: center; }
   .hero-tags span { min-height: 36px; padding: 0 14px; font-size: 0.82rem; }
