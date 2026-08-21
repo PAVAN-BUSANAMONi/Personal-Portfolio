@@ -322,6 +322,25 @@
     }
   });
 
+  // Hamburger Mobile Nav Toggle
+  const hamburgerToggle = document.getElementById("hamburger-toggle");
+  const siteNav = document.getElementById("site-nav");
+  if (hamburgerToggle && siteNav) {
+    hamburgerToggle.addEventListener("click", () => {
+      const isOpen = siteNav.classList.toggle("is-open");
+      hamburgerToggle.classList.toggle("is-active", isOpen);
+      hamburgerToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    // Close mobile nav when a link is clicked
+    siteNav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        siteNav.classList.remove("is-open");
+        hamburgerToggle.classList.remove("is-active");
+        hamburgerToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+
   // Contact Modal Logic
   const contactModal = document.getElementById("contact-modal");
   const openContactBtn = document.getElementById("open-contact-btn");
@@ -352,9 +371,55 @@
   if (closeContactBtn) closeContactBtn.addEventListener("click", closeModal);
   if (contactBackdrop) contactBackdrop.addEventListener("click", closeModal);
 
+  // Certificate Full Viewer Modal Logic
+  const certModal = document.getElementById("cert-viewer-modal");
+  const certFullImg = document.getElementById("cert-full-img");
+  const certTitleEl = document.getElementById("cert-modal-title");
+  const certDownloadBtn = document.getElementById("cert-modal-download-btn");
+  const certCloseBtn = document.getElementById("cert-modal-close");
+  const certBackdrop = certModal ? certModal.querySelector(".cert-modal-backdrop") : null;
+
+  function openCertModal(pdfSrc, imgSrc, title) {
+    if (!certModal) return;
+    certTitleEl.textContent = title || "Verified Credential";
+    if (certFullImg && imgSrc) {
+      certFullImg.src = imgSrc;
+      certFullImg.alt = title || "Verified Certificate";
+    }
+    if (certDownloadBtn && pdfSrc) {
+      certDownloadBtn.href = pdfSrc;
+    }
+    certModal.classList.add("is-open");
+    certModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeCertModal() {
+    if (!certModal) return;
+    certModal.classList.remove("is-open");
+    certModal.setAttribute("aria-hidden", "true");
+    if (certFullImg) certFullImg.src = "";
+    document.body.style.overflow = "";
+  }
+
+  // Attach triggers for certificate title links and buttons
+  document.querySelectorAll(".cert-title-link, .cert-open-pill-btn, .cert-view-btn").forEach((trigger) => {
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      const pdf = trigger.getAttribute("data-pdf");
+      const img = trigger.getAttribute("data-img");
+      const title = trigger.getAttribute("data-title");
+      openCertModal(pdf, img, title);
+    });
+  });
+
+  if (certCloseBtn) certCloseBtn.addEventListener("click", closeCertModal);
+  if (certBackdrop) certBackdrop.addEventListener("click", closeCertModal);
+
   window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && contactModal && contactModal.classList.contains("is-open")) {
-      closeModal();
+    if (e.key === "Escape") {
+      if (certModal && certModal.classList.contains("is-open")) closeCertModal();
+      if (contactModal && contactModal.classList.contains("is-open")) closeModal();
     }
   });
 

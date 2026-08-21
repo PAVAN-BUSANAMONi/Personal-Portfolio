@@ -158,7 +158,8 @@ button {
   background: rgba(253, 241, 225, 0.12);
 }
 
-.language-switcher {
+.language-switcher,
+.header-hire-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -174,14 +175,58 @@ button {
   transition: all 0.25s ease;
 }
 
-.language-switcher:hover {
+.language-switcher:hover,
+.header-hire-btn:hover {
   transform: translateY(-2px) scale(1.02);
   box-shadow: 0 8px 25px rgba(0, 242, 254, 0.55);
 }
 
-.language-switcher span {
+.language-switcher span,
+.header-hire-btn span {
   display: inline-flex;
   line-height: 1;
+}
+
+/* Hamburger Toggle (hidden on desktop) */
+.hamburger-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border: 1px solid rgba(253, 241, 225, 0.25);
+  border-radius: 10px;
+  background: rgba(253, 241, 225, 0.08);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 1001;
+}
+
+.hamburger-toggle:hover {
+  background: rgba(253, 241, 225, 0.15);
+}
+
+.hamburger-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--paper);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hamburger-toggle.is-active .hamburger-bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger-toggle.is-active .hamburger-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger-toggle.is-active .hamburger-bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 
@@ -766,19 +811,29 @@ button {
   color: rgba(253, 241, 225, 0.65);
 }
 
-/* About Journey Card (Glossy Finish) */
+/* Ambient Background Overlay for Sections */
+.section-with-ambient {
+  position: relative;
+  background-image: radial-gradient(circle at 50% 20%, rgba(0, 242, 254, 0.05), transparent 70%), linear-gradient(180deg, rgba(8, 14, 13, 0.94), rgba(8, 14, 13, 0.97)), url('./pavan/pavan-landscape.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+}
+
+/* About Journey Card (Glossy Finish with Pavan's Featured Portrait) */
 .about-journey-card {
   position: relative;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 36px;
-  background: linear-gradient(140deg, rgba(24, 40, 37, 0.86), rgba(10, 20, 18, 0.95));
+  grid-template-columns: 280px 1.2fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+  background: linear-gradient(140deg, rgba(24, 40, 37, 0.88), rgba(10, 20, 18, 0.96));
   backdrop-filter: blur(32px) saturate(190%);
   -webkit-backdrop-filter: blur(32px) saturate(190%);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 28px;
-  padding: 42px;
+  padding: 38px;
   box-shadow: 0 28px 75px rgba(0, 0, 0, 0.45), inset 0 1.5px 0 rgba(255, 255, 255, 0.4), inset 0 0 24px rgba(0, 242, 254, 0.04);
 }
 
@@ -792,6 +847,67 @@ button {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.02) 60%, transparent 100%);
   pointer-events: none;
   border-radius: 28px 28px 0 0;
+}
+
+/* Pavan's Featured Portrait Column */
+.journey-photo-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.journey-portrait-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1.5px solid rgba(0, 242, 254, 0.4);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 242, 254, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  background: #0d1a18;
+}
+
+.journey-portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journey-portrait-frame:hover .journey-portrait-img {
+  transform: scale(1.06);
+}
+
+.journey-photo-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 10px;
+  right: 10px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(8, 14, 13, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 242, 254, 0.4);
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #00f2fe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
 }
 
 .journey-left h3 {
@@ -963,6 +1079,68 @@ button {
   max-width: 920px;
   margin: 0 auto;
   padding: 40px 0;
+}
+
+/* River Origin Head Station */
+.river-origin-station {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 42px;
+  position: relative;
+  z-index: 4;
+}
+
+.river-origin-avatar-frame {
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #00f2fe;
+  box-shadow: 0 0 35px rgba(0, 242, 254, 0.55), inset 0 2px 6px rgba(255, 255, 255, 0.5);
+  background: #0d1a18;
+}
+
+.river-origin-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+
+.river-origin-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 242, 254, 0.5);
+  animation: riverRippleWave 2.8s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  pointer-events: none;
+}
+
+.river-origin-label {
+  margin-top: 12px;
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(8, 14, 13, 0.9);
+  border: 1px solid rgba(0, 242, 254, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.river-origin-label span {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.4));
 }
 
 /* Animated Flowing River Stream Spine */
@@ -1142,43 +1320,218 @@ button {
 }
 
 .river-milestone-card h3 {
-  margin: 0 0 4px;
-  font-size: 1.35rem;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 6px;
   line-height: 1.3;
 }
 
+.cert-title-link {
+  transition: all 0.25s ease;
+}
+
+.cert-title-link:hover {
+  color: #00f2fe !important;
+  text-shadow: 0 0 16px rgba(0, 242, 254, 0.6);
+  transform: translateX(2px);
+}
+
 .river-milestone-card h4 {
-  margin: 0 0 10px;
   font-size: 13.5px;
-  color: rgba(253, 241, 225, 0.75);
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--paper);
+  margin: 0 0 10px;
+  opacity: 0.9;
 }
 
 .river-milestone-card p {
   margin: 0;
   font-size: 13.5px;
   line-height: 1.6;
-  color: rgba(253, 241, 225, 0.8);
+  color: rgba(253, 241, 225, 0.78);
 }
 
-/* Mobile responsive for river flow */
-@media (max-width: 768px) {
-  .river-stream-line {
-    left: 28px;
-  }
-
-  .river-item-left,
-  .river-item-right {
-    padding-left: 72px;
-    padding-right: 0;
-    justify-content: flex-start;
-  }
-
-  .river-node-beacon {
-    left: 28px;
-  }
+/* Certificate Open Pill Button */
+.cert-open-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 18px;
+  margin-top: 16px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0, 242, 254, 0.16), rgba(79, 172, 254, 0.22));
+  border: 1.5px solid #00f2fe;
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
+
+.cert-open-pill-btn:hover {
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  color: #041014;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 242, 254, 0.45);
+}
+
+/* In-Page Certificate PDF Viewer Modal */
+.cert-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cert-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cert-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 10, 9, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.cert-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(94vw, 1100px);
+  height: min(90vh, 900px);
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, rgba(20, 36, 33, 0.96), rgba(8, 16, 14, 0.98));
+  border: 1.5px solid rgba(0, 242, 254, 0.4);
+  border-radius: 24px;
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.75), 0 0 50px rgba(0, 242, 254, 0.2), inset 0 1.5px 0 rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+  transform: scale(0.94);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cert-modal.is-open .cert-modal-dialog {
+  transform: scale(1);
+}
+
+.cert-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.cert-modal-kicker {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #00f2fe;
+}
+
+.cert-modal-title {
+  margin: 2px 0 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--paper);
+}
+
+.cert-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cert-action-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: rgba(0, 242, 254, 0.15);
+  border: 1px solid rgba(0, 242, 254, 0.4);
+  color: #00f2fe;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.cert-action-btn:hover {
+  background: #00f2fe;
+  color: #041014;
+  box-shadow: 0 0 16px rgba(0, 242, 254, 0.4);
+}
+
+.cert-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--paper);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.cert-close-btn:hover {
+  background: #ff4757;
+  border-color: #ff4757;
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.cert-modal-body {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #060e0d;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.cert-img-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-modal-full-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 35px rgba(0, 242, 254, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: #ffffff;
+}
+
+#cert-pdf-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
 
 
 /* 4. Projects Filter Tabs & Detailed Grid */
@@ -1914,19 +2267,53 @@ button {
     transform: none;
     padding: 12px 18px;
     border-radius: 18px;
+    flex-wrap: wrap;
   }
   
   .site-nav {
     display: none;
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(8, 13, 12, 0.96);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(0, 242, 254, 0.25);
+    border-radius: 18px;
+    padding: 16px;
+    gap: 4px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
   }
 
-  .site-brand {
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 12px 18px;
     font-size: 15px;
+    border-radius: 12px;
+    text-align: center;
   }
 
-  .header-hire-btn {
+  .site-nav a:hover {
+    background: rgba(0, 242, 254, 0.12);
+  }
+
+  .hamburger-toggle {
+    display: flex;
+  }
+
+  .header-hire-btn,
+  .language-switcher {
     padding: 8px 18px;
-    font-size: 13px;
+    font-size: 12px;
+  }
+
+  .site-logo {
+    font-size: 16px;
   }
 }
 
@@ -1935,11 +2322,12 @@ button {
   .hero-title { top: clamp(60px, 9vh, 85px); font-size: clamp(1.5rem, 6.8vw, 2.5rem); letter-spacing: 0.1em; }
   .bridge-img { bottom: 2vh; width: 190vw; }
   .frame-two-img { width: 176vw; }
+  .splitframe-img { width: min(200vw, 2240px); }
   .intro-copy { bottom: 28px; padding: 16px 18px; max-width: calc(100% - 32px); }
   .intro-copy p, .story-panel p { font-size: 0.95rem; }
-  .hero-tags { gap: 8px; flex-wrap: wrap; }
+  .hero-tags { gap: 8px; flex-wrap: wrap; justify-content: center; }
   .hero-tags span { min-height: 36px; padding: 0 14px; font-size: 0.82rem; }
-  .story-panel { top: 40%; }
+  .story-panel { top: 40%; padding: 0 18px; }
   .story-panel-bazaar { top: 24%; }
   .story-panel h2 { font-size: 2.3rem; }
   .facts { gap: 16px; margin-top: 28px; flex-wrap: wrap; }
@@ -1961,9 +2349,9 @@ button {
   .sights-controls { top: calc(var(--sights-screen-top) + 224px); left: 18px; }
 
   /* Section Headings */
-  .portfolio-section { padding: 60px 0; }
+  .portfolio-section { padding: 60px 16px; }
   .section-title { font-size: 2.2rem; }
-  .section-subtitle { font-size: 14px; }
+  .section-subtitle { font-size: 14px; max-width: 100%; padding: 0 8px; }
   .section-kicker { font-size: 12px; }
 
   /* Impact Dashboard on Mobile */
@@ -2001,6 +2389,16 @@ button {
     padding: 18px;
     border-radius: 16px;
   }
+  /* Journey Photo Column on Mobile */
+  .journey-photo-col {
+    display: flex;
+    justify-content: center;
+  }
+  .journey-portrait-frame {
+    width: min(240px, 60vw);
+    height: auto;
+    aspect-ratio: 3/4;
+  }
 
   /* Technical Skills on Mobile */
   .skills-grid {
@@ -2024,7 +2422,9 @@ button {
     left: 24px;
     width: 4px;
   }
-  .river-milestone-item {
+  .river-milestone-item,
+  .river-item-left,
+  .river-item-right {
     padding-left: 62px;
     padding-right: 0;
     justify-content: flex-start;
@@ -2053,6 +2453,53 @@ button {
   }
   .river-milestone-card p {
     font-size: 12.5px;
+  }
+  .cert-open-pill-btn {
+    padding: 10px 14px;
+    font-size: 12.5px;
+    border-radius: 12px;
+  }
+  /* River Origin Station on Mobile */
+  .river-origin-station {
+    flex-direction: column;
+    padding: 24px 18px;
+  }
+  .river-origin-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  .river-origin-text h3 {
+    font-size: 1.35rem;
+  }
+  .river-origin-text p {
+    font-size: 13px;
+  }
+
+  /* Certificate Modal on Mobile */
+  .cert-modal-dialog {
+    width: 96vw;
+    height: 92vh;
+    border-radius: 16px;
+  }
+  .cert-modal-header {
+    padding: 14px 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .cert-modal-title {
+    font-size: 14px;
+  }
+  .cert-modal-body {
+    padding: 12px;
+  }
+  .cert-action-btn {
+    padding: 6px 12px;
+    font-size: 11.5px;
+  }
+  .cert-close-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
   }
 
   /* Projects Filter Tabs on Mobile */
@@ -2135,12 +2582,39 @@ button {
 
 @media (max-width: 480px) {
   .hero-title { font-size: 1.45rem; }
-  .section-title { font-size: 1.95rem; }
+  .section-title { font-size: 1.75rem; }
+  .section-subtitle { font-size: 13px; }
   .metrics-grid {
     grid-template-columns: 1fr;
   }
   .sight-card {
     flex: 0 0 88vw;
+  }
+  .about-journey-card {
+    padding: 18px 14px;
+  }
+  .journey-portrait-frame {
+    width: min(200px, 55vw);
+  }
+  .cert-modal-dialog {
+    width: 98vw;
+    height: 94vh;
+    border-radius: 12px;
+  }
+  .cert-modal-header {
+    padding: 12px;
+  }
+  .cert-modal-title {
+    font-size: 13px;
+  }
+  .river-origin-station {
+    padding: 18px 14px;
+  }
+  .skills-grid {
+    gap: 14px;
+  }
+  .portfolio-section {
+    padding: 48px 12px;
   }
 }
 

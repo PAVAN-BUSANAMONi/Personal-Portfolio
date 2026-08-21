@@ -18,7 +18,7 @@
           <img class="scene-img sky-img" src="https://raft-blast-61784561.figma.site/_assets/v11/16b5007d9c93971e26ffe4e0e3e37946f6bd538c.png" alt="" />
           <header class="site-header" aria-label="Primary navigation">
             <a class="site-logo" href="#cinema">PAVAN BUSANAMONi</a>
-            <nav class="site-nav" aria-label="Main menu">
+            <nav class="site-nav" id="site-nav" aria-label="Main menu">
               <a href="#cinema" id="nav-intro">Intro</a>
               <a href="#about-section" id="nav-about">About</a>
               <a href="#skills-section" id="nav-skills">Skills</a>
@@ -26,9 +26,14 @@
               <a href="#projects-section" id="nav-projects">Projects</a>
               <a href="#contact-section" id="nav-contact">Contact</a>
             </nav>
-            <button class="language-switcher" id="open-contact-btn" aria-label="Hire me or contact">
+            <button class="header-hire-btn" id="open-contact-btn" aria-label="Hire me or contact">
               <span>HIRE ME</span>
               <span aria-hidden="true">↗</span>
+            </button>
+            <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+              <span class="hamburger-bar"></span>
+              <span class="hamburger-bar"></span>
+              <span class="hamburger-bar"></span>
             </button>
           </header>
           <div class="back-stack">
@@ -186,8 +191,16 @@
             </div>
           </div>
 
-          <!-- About Journey Card -->
+          <!-- About Journey Card with Pavan's Featured Portrait -->
           <div class="about-journey-card">
+            <div class="journey-photo-col">
+              <div class="journey-portrait-frame">
+                <img src="./pavan/pavan-portrait.jpg" alt="PAVAN BUSANAMONi" class="journey-portrait-img" />
+                <div class="journey-photo-badge">
+                  <span class="pulse-dot"></span> Full-Stack & AI Engineer
+                </div>
+              </div>
+            </div>
             <div class="journey-left">
               <h3>The Journey of PAVAN BUSANAMONi</h3>
               <p>
@@ -226,7 +239,7 @@
       </section>
 
       <!-- 2. Technical Skills & Tools -->
-      <section class="portfolio-section" id="skills-section">
+      <section class="portfolio-section section-with-ambient" id="skills-section">
         <div class="section-container">
           <div class="section-heading-wrap">
             <span class="section-kicker">Expertise</span>
@@ -286,9 +299,8 @@
         </div>
       </section>
 
-      <!-- 3. Career & Experience Timeline -->
       <!-- 3. Career & Experience Timeline (River Flow) -->
-      <section class="portfolio-section" id="timeline-section">
+      <section class="portfolio-section section-with-ambient" id="timeline-section">
         <div class="section-container">
           <div class="section-heading-wrap">
             <span class="section-kicker">Career Milestones</span>
@@ -297,45 +309,58 @@
           </div>
 
           <div class="timeline-river-wrap">
+            <!-- River Origin Head Station with Pavan Avatar -->
+            <div class="river-origin-station">
+              <div class="river-origin-avatar-frame">
+                <img src="./pavan/pavan-portrait.jpg" alt="PAVAN BUSANAMONi" class="river-origin-avatar" />
+                <div class="river-origin-glow"></div>
+              </div>
+              <div class="river-origin-label">
+                <span>The Odyssey of PAVAN BUSANAMONi</span>
+              </div>
+            </div>
+
             <div class="river-stream-line" aria-hidden="true">
               <div class="river-water-flow"></div>
             </div>
 
-            <!-- River Step 1: Oracle -->
+            <!-- Step 1: AWS Certified Cloud Practitioner -->
             <div class="river-milestone-item river-item-left">
-              <div class="river-node-beacon" style="--node-color: #ff4757; --glow-color: rgba(255, 71, 87, 0.5);">
+              <div class="river-node-beacon" style="--node-color: #ff9900; --glow-color: rgba(255, 153, 0, 0.5);">
                 <div class="river-ripple"></div>
-                <div class="river-node-badge">OCI</div>
-              </div>
-              <div class="river-milestone-card">
-                <div class="river-card-header">
-                  <span class="river-date-badge">2025</span>
-                  <span class="river-type-tag">Global Certification</span>
-                </div>
-                <h3 style="color:#ff6b81;">Oracle Certified Associate</h3>
-                <h4>Cloud Infrastructure Architect Associate</h4>
-                <p>Demonstrated core expertise in architecting, deploying, and securing enterprise cloud infrastructure using Oracle Cloud technologies.</p>
-              </div>
-            </div>
-
-            <!-- River Step 2: Salesforce -->
-            <div class="river-milestone-item river-item-right">
-              <div class="river-node-beacon" style="--node-color: #00a8ff; --glow-color: rgba(0, 168, 255, 0.5);">
-                <div class="river-ripple"></div>
-                <div class="river-node-badge">AI</div>
+                <div class="river-node-badge">AWS</div>
               </div>
               <div class="river-milestone-card">
                 <div class="river-card-header">
                   <span class="river-date-badge">2024</span>
-                  <span class="river-type-tag">AI Certification</span>
+                  <span class="river-type-tag">Global Certification</span>
                 </div>
-                <h3 style="color:#38bdf8;">Salesforce Certified</h3>
-                <h4>AI Associate</h4>
-                <p>Validated knowledge in AI concepts, predictive analytics, data management, and ethical AI implementation across business workflows.</p>
+                <h3 style="color:#ffb84d; cursor:pointer;" class="cert-title-link" data-pdf="./certificates/AWS Certified Cloud Practitioner certificate.pdf" data-img="./certificates/previews/AWS_Certified_Cloud_Practitioner_certificate.png" data-title="AWS Certified Cloud Practitioner">AWS Certified Cloud Practitioner ↗</h3>
+                <h4>Amazon Web Services • Cloud Architecture & Security</h4>
+                <p>Validated cloud fluency, foundational AWS cloud security, compliance, compute architecture, and enterprise cloud economics.</p>
+                <button class="cert-open-pill-btn" data-pdf="./certificates/AWS Certified Cloud Practitioner certificate.pdf" data-img="./certificates/previews/AWS_Certified_Cloud_Practitioner_certificate.png" data-title="AWS Certified Cloud Practitioner">📜 View Official Certificate</button>
               </div>
             </div>
 
-            <!-- River Step 3: EduSkills AP -->
+            <!-- Step 2: Essentials Automation Certification 2024 -->
+            <div class="river-milestone-item river-item-right">
+              <div class="river-node-beacon" style="--node-color: #00f2fe; --glow-color: rgba(0, 242, 254, 0.5);">
+                <div class="river-ripple"></div>
+                <div class="river-node-badge">RPA</div>
+              </div>
+              <div class="river-milestone-card">
+                <div class="river-card-header">
+                  <span class="river-date-badge">2024</span>
+                  <span class="river-type-tag">Industry Certification</span>
+                </div>
+                <h3 style="color:#67e8f9; cursor:pointer;" class="cert-title-link" data-pdf="./certificates/Essentials Automation Certification - 2024.pdf" data-img="./certificates/previews/Essentials_Automation_Certification___2024.png" data-title="Essentials Automation Certification - 2024">Essentials Automation Certification ↗</h3>
+                <h4>Automation Anywhere • Enterprise RPA & Workflow Engineering</h4>
+                <p>Mastered robotic process automation, bot lifecycle architectures, intelligent document processing, and cloud RPA bots.</p>
+                <button class="cert-open-pill-btn" data-pdf="./certificates/Essentials Automation Certification - 2024.pdf" data-img="./certificates/previews/Essentials_Automation_Certification___2024.png" data-title="Essentials Automation Certification - 2024">📜 View Official Certificate</button>
+              </div>
+            </div>
+
+            <!-- Step 3: EduSkills AP Internship -->
             <div class="river-milestone-item river-item-left">
               <div class="river-node-beacon" style="--node-color: #b026ff; --glow-color: rgba(176, 38, 255, 0.5);">
                 <div class="river-ripple"></div>
@@ -344,15 +369,16 @@
               <div class="river-milestone-card">
                 <div class="river-card-header">
                   <span class="river-date-badge">2024</span>
-                  <span class="river-type-tag">Industry Internship</span>
+                  <span class="river-type-tag">Government & Industry Internship</span>
                 </div>
-                <h3 style="color:#c084fc;">EduSkills AP Internship</h3>
-                <h4>Short-Term Intern (120 Hours)</h4>
-                <p>Completed intensive, hands-on engineering in modern full-stack web architectures, agile collaboration, automated testing, and cloud deployment.</p>
+                <h3 style="color:#c084fc; cursor:pointer;" class="cert-title-link" data-pdf="./certificates/EDUSKILLs AndhraPradesh.pdf" data-img="./certificates/previews/EDUSKILLs_AndhraPradesh.png" data-title="EduSkills Andhra Pradesh Internship Certificate">EduSkills Andhra Pradesh ↗</h3>
+                <h4>Full-Stack Development Intern (AICTE Verified)</h4>
+                <p>Completed intensive training and project engineering across modern web technologies, automated unit testing, and agile workflows.</p>
+                <button class="cert-open-pill-btn" data-pdf="./certificates/EDUSKILLs AndhraPradesh.pdf" data-img="./certificates/previews/EDUSKILLs_AndhraPradesh.png" data-title="EduSkills Andhra Pradesh Internship Certificate">📜 View Official Certificate</button>
               </div>
             </div>
 
-            <!-- River Step 4: KL University -->
+            <!-- Step 4: KL University -->
             <div class="river-milestone-item river-item-right">
               <div class="river-node-beacon" style="--node-color: #00f2fe; --glow-color: rgba(0, 242, 254, 0.5);">
                 <div class="river-ripple"></div>
@@ -369,24 +395,61 @@
               </div>
             </div>
 
-            <!-- River Step 5: Google -->
+            <!-- Step 5: Automation Anywhere Certified Essentials RPA Professional (2023) -->
             <div class="river-milestone-item river-item-left">
-              <div class="river-node-beacon" style="--node-color: #f59e0b; --glow-color: rgba(245, 158, 11, 0.5);">
+              <div class="river-node-beacon" style="--node-color: #38bdf8; --glow-color: rgba(56, 189, 248, 0.5);">
+                <div class="river-ripple"></div>
+                <div class="river-node-badge">A360</div>
+              </div>
+              <div class="river-milestone-card">
+                <div class="river-card-header">
+                  <span class="river-date-badge">2023</span>
+                  <span class="river-type-tag">Professional Credential</span>
+                </div>
+                <h3 style="color:#7dd3fc; cursor:pointer;" class="cert-title-link" data-pdf="./certificates/Automation Anywhere Certified Essentials RPA Professional (Automation 360) - 2023.pdf" data-img="./certificates/previews/Automation_Anywhere_Certified_Essentials_RPA_Professional_Automation_360___2023.png" data-title="Automation Anywhere Essentials RPA Professional (Automation 360)">Automation Anywhere RPA Professional ↗</h3>
+                <h4>RPA Professional (Automation 360)</h4>
+                <p>Validated core RPA architecture, Automation 360 workspace integration, automated process tasks, and trigger-based bot execution.</p>
+                <button class="cert-open-pill-btn" data-pdf="./certificates/Automation Anywhere Certified Essentials RPA Professional (Automation 360) - 2023.pdf" data-img="./certificates/previews/Automation_Anywhere_Certified_Essentials_RPA_Professional_Automation_360___2023.png" data-title="Automation Anywhere Essentials RPA Professional (Automation 360)">📜 View Official Certificate</button>
+              </div>
+            </div>
+
+            <!-- Step 6: Google AI/ML Virtual Internship (2023) -->
+            <div class="river-milestone-item river-item-right">
+              <div class="river-node-beacon" style="--node-color: #fbbc05; --glow-color: rgba(251, 188, 5, 0.5);">
                 <div class="river-ripple"></div>
                 <div class="river-node-badge">G</div>
               </div>
               <div class="river-milestone-card">
                 <div class="river-card-header">
                   <span class="river-date-badge">2023</span>
-                  <span class="river-type-tag">AICTE Verified</span>
+                  <span class="river-type-tag">AICTE Verified Internship</span>
                 </div>
-                <h3 style="color:#fcd34d;">Google Generative AI</h3>
-                <h4>Virtual Internship</h4>
-                <p>Explored Large Language Models, prompt engineering techniques, and practical GenAI integration patterns into real-world software.</p>
+                <h3 style="color:#fcd34d; cursor:pointer;" class="cert-title-link" data-pdf="./certificates/Google AiML Virtual Internship.pdf" data-img="./certificates/previews/Google_AiML_Virtual_Internship.png" data-title="Google AI/ML Virtual Internship Certificate">Google AI/ML Virtual Internship ↗</h3>
+                <h4>Google Developers & AICTE • Machine Learning & GenAI</h4>
+                <p>Explored deep learning workflows, TensorFlow models, computer vision pipelines, and intelligent API integration.</p>
+                <button class="cert-open-pill-btn" data-pdf="./certificates/Google AiML Virtual Internship.pdf" data-img="./certificates/previews/Google_AiML_Virtual_Internship.png" data-title="Google AI/ML Virtual Internship Certificate">📜 View Official Certificate</button>
               </div>
             </div>
 
-            <!-- River Step 6: Diploma -->
+            <!-- Step 7: Cyber Jagrit Bharat Certificate (2023) -->
+            <div class="river-milestone-item river-item-left">
+              <div class="river-node-beacon" style="--node-color: #ef4444; --glow-color: rgba(239, 68, 68, 0.5);">
+                <div class="river-ripple"></div>
+                <div class="river-node-badge">🛡️</div>
+              </div>
+              <div class="river-milestone-card">
+                <div class="river-card-header">
+                  <span class="river-date-badge">2023</span>
+                  <span class="river-type-tag">Cybersecurity Credential</span>
+                </div>
+                <h3 style="color:#f87171; cursor:pointer;" class="cert-title-link" data-pdf="./certificates/Cyber Jagrit Bharat certidicate_BUSANAMONIPAVAN.pdf" data-img="./certificates/previews/Cyber_Jagrit_Bharat_certidicate_BUSANAMONIPAVAN.png" data-title="Cyber Jagrit Bharat Certificate">Cyber Jagrit Bharat ↗</h3>
+                <h4>Information Security & Cyber Defense Certification</h4>
+                <p>Certified in web application security practices, network defense foundations, secure coding standards, and threat prevention.</p>
+                <button class="cert-open-pill-btn" data-pdf="./certificates/Cyber Jagrit Bharat certidicate_BUSANAMONIPAVAN.pdf" data-img="./certificates/previews/Cyber_Jagrit_Bharat_certidicate_BUSANAMONIPAVAN.png" data-title="Cyber Jagrit Bharat Certificate">📜 View Official Certificate</button>
+              </div>
+            </div>
+
+            <!-- Step 8: Diploma -->
             <div class="river-milestone-item river-item-right">
               <div class="river-node-beacon" style="--node-color: #10b981; --glow-color: rgba(16, 185, 129, 0.5);">
                 <div class="river-ripple"></div>
@@ -405,6 +468,29 @@
           </div>
         </div>
       </section>
+
+      <!-- In-Page Certificate PDF Viewer Modal -->
+      <div id="cert-viewer-modal" class="cert-modal" aria-hidden="true">
+        <div class="cert-modal-backdrop"></div>
+        <div class="cert-modal-dialog">
+          <div class="cert-modal-header">
+            <div class="cert-modal-title-wrap">
+              <span class="cert-modal-kicker">Verified Credential • PAVAN BUSANAMONi</span>
+              <h3 id="cert-modal-title" class="cert-modal-title">Certificate</h3>
+            </div>
+            <div class="cert-modal-actions">
+              <a id="cert-modal-download-btn" href="#" target="_blank" class="cert-action-btn" title="Open Full PDF in new tab">Open PDF ↗</a>
+              <button id="cert-modal-close" class="cert-close-btn" aria-label="Close modal">✕</button>
+            </div>
+          </div>
+          <div class="cert-modal-body">
+            <div class="cert-img-container">
+              <img id="cert-full-img" src="" alt="Certificate View" class="cert-modal-full-img" />
+            </div>
+            <iframe id="cert-pdf-frame" src="" title="Certificate PDF Viewer" style="display:none;"></iframe>
+          </div>
+        </div>
+      </div>
 
       <!-- 4. Projects Showcase (Comprehensive Grid) -->
       <section class="portfolio-section" id="projects-section">

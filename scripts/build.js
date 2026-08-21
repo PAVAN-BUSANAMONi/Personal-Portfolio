@@ -66,7 +66,17 @@ const projectsSrc = path.join(rootDir, "public", "projects");
 copyDir(projectsSrc, path.join(buildDir, "public", "projects"));
 copyDir(projectsSrc, path.join(buildDir, "projects"));
 
-// 3. Copy other public assets to build/
+// 3. Copy certificates to build/certificates and public/certificates
+const certsSrc = path.join(rootDir, "certificates");
+copyDir(certsSrc, path.join(buildDir, "certificates"));
+copyDir(certsSrc, path.join(publicDir, "certificates"));
+
+// 4. Copy pavan photos to build/pavan and public/pavan
+const pavanSrc = path.join(rootDir, "pavan");
+copyDir(pavanSrc, path.join(buildDir, "pavan"));
+copyDir(pavanSrc, path.join(publicDir, "pavan"));
+
+// 5. Copy other public assets to build/
 copyDir(publicDir, buildDir);
 
 console.log("Build completed successfully for Vercel!");
