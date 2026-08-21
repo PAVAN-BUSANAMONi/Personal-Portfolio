@@ -281,32 +281,40 @@ button {
   height: 220px;
   padding: 24px;
   overflow: hidden;
-  border: 1px solid rgba(253, 241, 225, 0.42);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 24px;
-  color: #000;
-  background: #fdf1e1;
-  box-shadow: 0 18px 52px rgba(2, 47, 64, 0.12);
-  backdrop-filter: none;
+  color: var(--paper);
+  background: linear-gradient(145deg, rgba(18, 30, 28, 0.92), rgba(6, 14, 13, 0.98));
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65), inset 0 1.5px 0 rgba(255, 255, 255, 0.4), inset 0 0 24px rgba(0, 242, 254, 0.05);
   cursor: pointer;
   pointer-events: auto;
   user-select: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.sight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.02) 60%, transparent 100%);
+  pointer-events: none;
+  border-radius: 24px 24px 0 0;
 }
 
 .sight-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 60px rgba(2, 47, 64, 0.25);
-}
-
-.sight-card::before,
-.sight-card::after {
-  content: none;
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(0, 242, 254, 0.7);
+  box-shadow: 0 28px 75px rgba(0, 242, 254, 0.3), inset 0 1.5px 0 rgba(255, 255, 255, 0.5), inset 0 0 30px rgba(0, 242, 254, 0.15);
 }
 
 .sight-kicker,
 .sight-card h3,
 .sight-card p {
-  text-shadow: none;
   position: relative;
   z-index: 1;
 }
@@ -319,11 +327,13 @@ button {
 .sight-kicker {
   display: block;
   margin-bottom: 56px;
-  color: #000;
+  color: #00f2fe;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.05;
   text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 10px rgba(0, 242, 254, 0.45);
 }
 
 .sight-pin {
@@ -333,6 +343,8 @@ button {
   width: 67.2px;
   height: 67.2px;
   pointer-events: none;
+  color: #00f2fe;
+  filter: drop-shadow(0 0 12px rgba(0, 242, 254, 0.6));
 }
 
 .sight-card h3 {
@@ -342,13 +354,14 @@ button {
   bottom: calc(24px + (16px * 1.16 * 2) + 12px);
   max-width: calc(100% - 76px);
   margin: 0;
-  color: #000;
+  color: #ffffff;
   font-size: 24px;
   font-weight: 800;
   line-height: 0.95;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .sight-card p {
@@ -358,12 +371,12 @@ button {
   bottom: 24px;
   max-width: 100%;
   margin: 12px 0 0;
-  color: #000;
-  font-size: 16px;
+  color: rgba(253, 241, 225, 0.85);
+  font-size: 15px;
   font-weight: 400;
-  line-height: 1.16;
+  line-height: 1.25;
   display: -webkit-box;
-  max-height: calc(2em * 1.16);
+  max-height: calc(2em * 1.25);
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -1874,7 +1887,7 @@ button {
 }
 
 
-/* ==================== MEDIA QUERIES ==================== */
+/* ==================== MEDIA QUERIES (FULL RESPONSIVE & MOBILE SUITE) ==================== */
 @media (max-width: 1500px) {
   .hero-title { font-size: clamp(2rem, 4.6vw, 4.2rem); top: clamp(70px, 10vh, 110px); }
   .story-panel h2 { font-size: 4.1rem; }
@@ -1893,47 +1906,242 @@ button {
   .contact-section-grid { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
+  .site-header {
+    width: calc(100% - 24px);
+    left: 12px;
+    right: 12px;
+    transform: none;
+    padding: 12px 18px;
+    border-radius: 18px;
+  }
+  
+  .site-nav {
+    display: none;
+  }
+
+  .site-brand {
+    font-size: 15px;
+  }
+
+  .header-hire-btn {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
   .stage { min-height: 640px; }
-  .site-header { grid-template-columns: 1fr auto; gap: 18px; padding: 14px 20px; border-radius: 20px; top: 12px; }
-  .site-nav { display: none; }
-  .hero-title { top: clamp(60px, 9vh, 85px); font-size: clamp(1.4rem, 7vw, 2.4rem); letter-spacing: 0.12em; }
+  .hero-title { top: clamp(60px, 9vh, 85px); font-size: clamp(1.5rem, 6.8vw, 2.5rem); letter-spacing: 0.1em; }
   .bridge-img { bottom: 2vh; width: 190vw; }
   .frame-two-img { width: 176vw; }
-  .intro-copy { bottom: 36px; padding: 18px 20px; }
+  .intro-copy { bottom: 28px; padding: 16px 18px; max-width: calc(100% - 32px); }
+  .intro-copy p, .story-panel p { font-size: 0.95rem; }
+  .hero-tags { gap: 8px; flex-wrap: wrap; }
+  .hero-tags span { min-height: 36px; padding: 0 14px; font-size: 0.82rem; }
+  .story-panel { top: 40%; }
+  .story-panel-bazaar { top: 24%; }
+  .story-panel h2 { font-size: 2.3rem; }
+  .facts { gap: 16px; margin-top: 28px; flex-wrap: wrap; }
+  .facts dt { font-size: 2.2rem; }
 
-
-
-
-
-
-
-
-  .intro-copy p, .story-panel p { font-size: 1rem; }
-  .hero-tags { gap: 8px; }
-  .hero-tags span { min-height: 38px; padding: 0 16px; font-size: 0.88rem; }
-  .story-panel { top: 42%; }
-  .story-panel-bazaar { top: 26%; }
-  .story-panel h2 { font-size: 2.45rem; }
-  .facts { gap: 18px; margin-top: 34px; }
-  .facts dt { font-size: 2.5rem; }
+  /* 3D Sights Slider on Mobile */
   .sights-slider { padding: 0; }
-  .sights-track { gap: 12px; transform: translate3d(calc(var(--sights-shift) - 18vw), 0, 0); }
-  .sight-card { flex-basis: min(82vw, 330px); height: 220px; padding: 24px; border-radius: 24px; }
-  .sights-controls { top: calc(var(--sights-screen-top) + 236px); }
-  .sight-card h3 { max-width: 78%; }
-  .sight-card p { max-width: 100%; margin-top: 10px; }
-  .sight-kicker { margin-bottom: 56px; }
-  .sight-pin { top: 24px; right: 24px; width: 57.6px; height: 57.6px; }
+  .sights-track { gap: 12px; }
+  .sight-card {
+    flex: 0 0 min(84vw, 340px);
+    height: 210px;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .sight-kicker { margin-bottom: 44px; font-size: 11px; }
+  .sight-pin { top: 18px; right: 18px; width: 50px; height: 50px; }
+  .sight-card h3 { font-size: 20px; max-width: calc(100% - 60px); bottom: calc(20px + (14px * 1.2 * 2) + 8px); }
+  .sight-card p { font-size: 13.5px; bottom: 20px; }
+  .sights-controls { top: calc(var(--sights-screen-top) + 224px); left: 18px; }
+
+  /* Section Headings */
+  .portfolio-section { padding: 60px 0; }
   .section-title { font-size: 2.2rem; }
-  .timeline-tree::before { left: 24px; }
-  .timeline-badge { width: 48px; height: 48px; font-size: 13px; }
-  .timeline-item { gap: 16px; }
-  .contact-details-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
-  .contact-modal-content { padding: 24px 18px; }
-  .contact-section-grid { padding: 24px 18px; }
-  .footer-container { flex-direction: column; text-align: center; }
+  .section-subtitle { font-size: 14px; }
+  .section-kicker { font-size: 12px; }
+
+  /* Impact Dashboard on Mobile */
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .metric-card {
+    padding: 22px 14px;
+    border-radius: 18px;
+  }
+  .metric-value {
+    font-size: 2.4rem;
+    margin-bottom: 6px;
+  }
+  .metric-label {
+    font-size: 13px;
+  }
+  .metric-sub {
+    font-size: 11.5px;
+  }
+  .about-journey-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 18px;
+    border-radius: 20px;
+  }
+  .journey-left h3 {
+    font-size: 1.75rem;
+  }
+  .journey-left p {
+    font-size: 14px;
+  }
+  .journey-box {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  /* Technical Skills on Mobile */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .skill-category-card {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+  .skill-pill {
+    padding: 6px 13px;
+    font-size: 12px;
+  }
+
+  /* River Flow Timeline on Mobile */
+  .timeline-river-wrap {
+    padding: 20px 0;
+  }
+  .river-stream-line {
+    left: 24px;
+    width: 4px;
+  }
+  .river-milestone-item {
+    padding-left: 62px;
+    padding-right: 0;
+    justify-content: flex-start;
+    margin-bottom: 34px;
+  }
+  .river-node-beacon {
+    left: 24px;
+    width: 50px;
+    height: 50px;
+  }
+  .river-node-badge {
+    width: 40px;
+    height: 40px;
+    font-size: 12.5px;
+  }
+  .river-milestone-card {
+    max-width: 100%;
+    padding: 18px 18px;
+    border-radius: 18px;
+  }
+  .river-milestone-card h3 {
+    font-size: 1.18rem;
+  }
+  .river-milestone-card h4 {
+    font-size: 12.5px;
+  }
+  .river-milestone-card p {
+    font-size: 12.5px;
+  }
+
+  /* Projects Filter Tabs on Mobile */
+  .projects-tab-nav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 6px 4px;
+    gap: 8px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+  .projects-tab-nav::-webkit-scrollbar {
+    display: none;
+  }
+  .project-tab-btn {
+    flex-shrink: 0;
+    padding: 8px 14px;
+    font-size: 12.5px;
+  }
+
+  /* Projects Grid on Mobile */
+  .projects-detailed-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .project-detailed-card {
+    border-radius: 20px;
+  }
+  .project-preview-wrap {
+    height: 190px;
+  }
+  .project-info-wrap {
+    padding: 20px 18px;
+  }
+  .project-card-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .project-btn-live,
+  .project-btn-github {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+  }
+
+  /* Contact Section & Modal on Mobile */
+  .contact-section-grid {
+    grid-template-columns: 1fr;
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+  .contact-details-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .contact-modal-content {
+    width: 95vw;
+    max-height: 94vh;
+    padding: 24px 16px;
+    border-radius: 22px;
+  }
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer on Mobile */
+  .footer-container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.45rem; }
+  .section-title { font-size: 1.95rem; }
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .sight-card {
+    flex: 0 0 88vw;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
