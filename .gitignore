@@ -30,3 +30,4 @@ Server/node_modules
 Server/config.js
 
 .vercel
+.env*

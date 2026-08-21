@@ -2,7 +2,7 @@ const nodemailer = require("nodemailer");
 const path = require("path");
 
 const OWNER_NAME = "PAVAN BUSANAMONi";
-const OWNER_EMAIL = process.env.CONTACT_RECEIVER_EMAIL ? process.env.CONTACT_RECEIVER_EMAIL.trim() : "rocktheworld1432@gmail.com";
+const OWNER_EMAIL = process.env.CONTACT_RECEIVER_EMAIL ? process.env.CONTACT_RECEIVER_EMAIL.trim() : "pavan.busanamoni@gmail.com";
 const MAIL_USER = process.env.MAIL_USER ? process.env.MAIL_USER.trim() : "personal.portfolio.pavan@gmail.com";
 const MAIL_APP_PASSWORD = process.env.MAIL_APP_PASSWORD ? process.env.MAIL_APP_PASSWORD.trim() : undefined;
 
@@ -425,7 +425,7 @@ function autoReplyText(data) {
 function validateContact(data) {
   const errors = [];
 
-  if (!data.name || data.name.trim().length < 2) {
+  if (!data.name || data.name.trim().length < 1) {
     errors.push("Name is required.");
   }
 
@@ -433,7 +433,7 @@ function validateContact(data) {
     errors.push("A valid email is required.");
   }
 
-  if (!data.message || data.message.trim().length < 5) {
+  if (!data.message || data.message.trim().length < 1) {
     errors.push("Message is required.");
   }
 

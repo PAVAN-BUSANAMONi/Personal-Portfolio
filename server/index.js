@@ -452,7 +452,7 @@ function autoReplyText(data) {
 function validateContact(data) {
   const errors = [];
 
-  if (!data.name || data.name.trim().length < 2) {
+  if (!data.name || data.name.trim().length < 1) {
     errors.push("Name is required.");
   }
 
@@ -460,7 +460,7 @@ function validateContact(data) {
     errors.push("A valid email is required.");
   }
 
-  if (!data.message || data.message.trim().length < 5) {
+  if (!data.message || data.message.trim().length < 1) {
     errors.push("Message is required.");
   }
 
@@ -537,6 +537,15 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`Contact mail server running on http://localhost:${PORT}`);
+app.use(express.static(path.join(__dirname, "..")));
+
+app.use((req, res, next) => {
+  if (req.path.startsWith("/api/")) return next();
+  res.sendFile(path.join(__dirname, "../index.html"));
 });
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
+
