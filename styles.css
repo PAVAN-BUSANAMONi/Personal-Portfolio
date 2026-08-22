@@ -2323,7 +2323,7 @@ button {
 
 @media (max-width: 768px) {
   .stage { min-height: 640px; }
-  .hero-title { top: clamp(65px, 9.5vh, 100px); font-size: clamp(1.8rem, 6.5vw, 3rem); letter-spacing: 0.14em; }
+  .hero-title { top: clamp(82px, 11vh, 120px); font-size: clamp(1.85rem, 6.8vw, 3.2rem); letter-spacing: 0.14em; }
   .bridge-img { width: 190vw; }
   .frame-two-img { width: 176vw; }
   .splitframe-img { width: min(190vw, 2240px); }
